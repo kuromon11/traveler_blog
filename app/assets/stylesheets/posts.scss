@@ -3,6 +3,7 @@ body{
   background-color: #AEC4E5;
   min-width: 600px;
   min-height: 600px;
+
   //ヘッダー部分
   .header{
     height: 60px;
@@ -36,6 +37,12 @@ body{
     height: calc(100vh - 60px - 20px);
     width: 60vw;
     overflow: scroll;
+    //背景に画像挿入
+    background-image: url(japan.png);
+    background-size: 70%;
+    // background-attachment: fixed;
+    background-position: center center;
+    background-repeat:no-repeat; //繰り返さない指定
 
     //1つあたりのcontent
     .content{
@@ -89,7 +96,7 @@ body{
               }
             }
             &--date{
-              color: gray;
+              color: #000000;
             }
           }
         }
