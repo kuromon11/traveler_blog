@@ -9,7 +9,7 @@
       </div>
       <div class="content__info__right">
         <div class="content__info__right__top">
-          <%= post.title %>
+          <%= link_to post.title, post_path(post.id), class: "content__info__right__top--title" %>
         </div>
         <div class="content__info__right__bottom">
           <div class="content__info__right__bottom--date">

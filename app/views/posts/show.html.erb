@@ -1,0 +1,15 @@
+<div class="postTitle">
+  <%= @post.title %>
+</div>
+<div class="postDate">
+  <%= @post.created_at %>
+</div>
+<div class="postAuthor">
+</div>
+<div class="postManage">
+  <%= link_to "編集", edit_post_path(@post.id), class: "postManage__edit" %>
+</div>
+<div class="postContent">
+  <%# 改行を反映 %>
+  <%= simple_format @post.content %>
+</div>
