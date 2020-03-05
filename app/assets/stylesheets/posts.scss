@@ -1,11 +1,11 @@
 body{
-  background-color: #f6f6f6;
+  background-color: #AEC4E5;
   min-width: 650px;
   .header{
     height: 56px;
-    width: 100%;
+    width: 100vw;
     padding: 0 150px;
-    background-color: #55c500;
+    background-color: #4072B3;
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -26,46 +26,65 @@ body{
       }
     }
   }
+
   .contents{
     margin: 30px auto 0;
     background-color: #fff;
     height: 600px;
-    width: 70%;
+    width: 70vw;
     overflow: scroll;
+
+    //1つあたりのcontent
     .content{
-      padding: 10px;
-      border-bottom: 1px solid #f6f6f6;
-      display: flex;
-      &__left{
-        padding-right: 20px;
+      width: 60vw;
+      height: 40vh;
+      border-bottom: 1px solid;
+      border-color: #4072B3;
+      margin: 10px auto;
+      &__top{
+        width: 60vw;
+        height: 80%;
         &--image{
-          height: 55px;
-          width: 55px;
+          height: calc(100% - 10px);
+          width: 100%;
+          background-color: #6088C6;
           border: solid 1px;
         }
       }
-      &__right{
-        width: calc(100%-100px);
-        &__top{
-          font-size: 20px;
-          font-weight: bold;
-          &--title{
-            text-decoration: none;
-            color: #000000;
+      &__info{
+        display: flex;
+        &__left{
+          padding-right: 20px;
+          &--image{
+            height: 60px;
+            width: 60px;
+            border: solid 1px;
+            background-color: skyblue;
           }
         }
-        &__bottom{
-          font-size: 15px;
-          color: #999;
-          display: flex;
-          &--userName{
-            &--btn{
+        &__right{
+          width: calc(100%-100px);
+          &__top{
+            font-size: 20px;
+            font-weight: bold;
+            &--title{
               text-decoration: none;
-              color: #999;
+              color: #000000;
             }
           }
-          &--date{
-            margin-left: 20px;
+          &__bottom{
+            font-size: 15px;
+            color: #999;
+            display: flex;
+            &--userName{
+              &--btn{
+                text-decoration: none;
+                color: #999;
+              }
+            }
+            &--date{
+              color: gray;
+            }
           }
         }
       }
@@ -76,6 +95,7 @@ body{
         text-align: center;
       }
     }
+
     .postTitle{
       padding-top: 20px;
       text-align: center;
