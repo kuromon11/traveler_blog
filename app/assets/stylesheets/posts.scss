@@ -40,8 +40,7 @@ body{
     //背景に画像挿入
     background-image: url(japan.png);
     background-size: 70%;
-    // background-attachment: fixed;
-    background-position: center center;
+    background-position: center;
     background-repeat:no-repeat; //繰り返さない指定
 
     //1つあたりのcontent
@@ -87,9 +86,12 @@ body{
           }
           &__bottom{
             font-size: 15px;
-            color: #999;
+            color: #000000;
             display: flex;
+            justify-content: flex-end;
             &--userName{
+              color: #000000;
+              margin-right: 10px;
               &--btn{
                 text-decoration: none;
                 color: #999;
@@ -97,6 +99,7 @@ body{
             }
             &--date{
               color: #000000;
+              font-size: 8px;
             }
           }
         }
