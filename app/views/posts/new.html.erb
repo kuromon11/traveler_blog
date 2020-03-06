@@ -5,5 +5,10 @@
 <%= form_with model: @post, class: :form, local: true do |form| %>
   <%= form.text_field :title, placeholder: :タイトル, class: :form__title %>
   <%= form.text_area :content, placeholder: :ブログ本文, class: :form__content %>
+  <%# 画像投稿フォーム %>
+  <%= form.file_field :image, class: :form__image %>
   <%= form.submit '投稿！', class: :form__btn %>
-<% end %>
+<%end %>
+
+  <%# <i class="fa fa-image fa-2x"> %>
+  <%# <%= form.label :image, class: "fa fa-image fa-2x" %> 
