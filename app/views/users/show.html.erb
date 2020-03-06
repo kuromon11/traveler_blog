@@ -1,3 +1,6 @@
+<div class="postTitle">
+  <%= @user.nickname %>の投稿一覧
+</div>
 <% @posts.each do |post| %>
   <div class="content">
     <div class="content__top">
@@ -15,7 +18,7 @@
         </div>
         <div class="content__info__right__bottom">
           <div class="content__info__right__bottom--userName">
-            <%= post.user.nickname %>
+          <%= link_to post.user.nickname, user_path(post.user), class: "content__info__right__bottom--userName--btn" %>
           </div>
           <div class="content__info__right__bottom--date">
             <%= post.created_at %>
@@ -25,3 +28,4 @@
     </div>
   </div>
 <% end %>
+

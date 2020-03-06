@@ -1,14 +1,14 @@
 body{
   //body要素で他のビューファイルに行っても変わらない
   background-color: #AEC4E5;
-  min-width: 600px;
+  min-width: 750px;
   min-height: 600px;
 
   //ヘッダー部分
   .header{
     height: 60px;
     width: 100vw;
-    padding: 0 150px;
+    padding: 0 50px;
     background-color: #4072B3;
     color: #fff;
     display: flex;
@@ -21,10 +21,18 @@ body{
         color: #fff;
       }
     }
+    &__left{
+      &--btn{
+        text-decoration: none;
+        line-height: 60px;
+        color: #fff;
+        margin-left:15px;
+      }
+    }
     &__right{
       &--btn{
         text-decoration: none;
-        line-height: 56px;
+        line-height: 60px;
         color: #fff;
         margin-left:15px;
       }
@@ -35,34 +43,37 @@ body{
     margin: 20px auto 0;
     background-color: #fff;
     height: calc(100vh - 60px - 20px);
-    width: 60vw;
-    overflow: scroll;
+    width: 70vw;
+    overflow-y: scroll;
     //背景に画像挿入
     background-image: url(japan.png);
-    background-size: 70%;
+    background-size: 60%;
     background-position: center;
     background-repeat:no-repeat; //繰り返さない指定
 
     //1つあたりのcontent
     .content{
-      width: 50vw;
+      width: 100%;
       height: 60vh;
       border-bottom: 1px solid;
       border-color: #4072B3;
       margin: 40px auto;
       &__top{
-        width: 50vw;
+        width: 600px;
         height: 85%;
+        margin: 0 auto;
         &--image{
           width: 100%;
           height: 100%;
-          background-color: #6088C6;
+          // background-color: #6088C6;
           border: solid 1px;
+          border-color: black;
         }
       }
       &__info{
-        width: 60vw;
+        width: 600px;
         height: 15%;
+        margin: 0 auto;
         display: flex;
         align-items: flex-end;
         &__left{
@@ -75,7 +86,7 @@ body{
           }
         }
         &__right{
-          width: calc(100%-100px);
+          width: calc(100%-70px);
           &__top{
             font-size: 20px;
             font-weight: bold;
@@ -94,7 +105,7 @@ body{
               margin-right: 10px;
               &--btn{
                 text-decoration: none;
-                color: #999;
+                color: #000000;
               }
             }
             &--date{

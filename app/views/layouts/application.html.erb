@@ -14,8 +14,15 @@
       <div class="header__title">
         <%= link_to "JapanTraveler", root_path, class: "header__title--text" %>
       </div>
+      <% if user_signed_in? %>
+        <div class="header__left">
+          <%= link_to "都道府県検索", "#", class: "header__left--btn" %>
+          <%= link_to "タグ検索", "#", class: "header__left--btn" %>
+        </div>
+      <% end %>
       <div class="header__right">
         <% if user_signed_in? %>
+          <%= link_to current_user.nickname, user_path(current_user), class: "header__right--btn" %>
           <%= link_to "新規投稿", new_post_path, class: "header__right--btn" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn" %>
         <% else %>
