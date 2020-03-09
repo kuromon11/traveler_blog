@@ -68,8 +68,3 @@ gem 'pry-rails'
 gem 'font-awesome-rails'
 #ページネーションのため導入
 gem 'kaminari'
-#haml導入
-gem 'haml-rails'
-#画像をアップロード、表示
-gem 'carrierwave'
-gem 'mini_magick'
