@@ -1,8 +1,8 @@
 .content
   .content__top
-    %p.content__top--image
-      %img{:alt => "", :src => "/assets/sample2.png"}/
-      = form_with
+    -# %p.content__top--image
+      -# %img{:alt => "", :src => "/assets/sample2.png"}/
+    = image_tag post.image.url, class: 'content__top--image' if post.image.present?
   .content__info
     .content__info__left
       .content__info__left--image
