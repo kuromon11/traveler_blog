@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @posts = Post.includes(:user)
+    # 投稿記事を新着順に並べ替え
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
 
   def new
@@ -15,6 +17,13 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user).order("created_at DESC")
+  end
+
+  # searchアクションを作成
+  def search
+    @posts = Post.search(params[:keyword])#.includes(:user).order("created_at DESC")
   end
 
   def edit
@@ -35,7 +44,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
   end
 
 end

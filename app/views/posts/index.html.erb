@@ -1,25 +1,10 @@
-<% @posts.each do |post| %>
-  <div class="content">
-    <div class="content__top">
-      <p class="content__top--image"></p>
-    </div>
-    <div class="content__info">
-      <div class="content__info__left">
-        <div class="content__info__left--image"></div>
-      </div>
-      <div class="content__info__right">
-        <div class="content__info__right__top">
-          <%= link_to post.title, post_path(post.id), class: "content__info__right__top--title" %>
-        </div>
-        <div class="content__info__right__bottom">
-          <div class="content__info__right__bottom--userName">
-            <%= post.user.nickname %>
-          </div>
-          <div class="content__info__right__bottom--date">
-            <%= post.created_at %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<%# 検索機能 %>
+<%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
 <% end %>
+<%= paginate(@posts) %>
+  <% @posts.each do |post| %>
+    <%= render partial: "post", locals: { post: post } %>
+  <% end %>
+<%= paginate(@posts) %>
