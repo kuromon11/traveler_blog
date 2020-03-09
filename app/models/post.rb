@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :title, :content, :image, presence: true
+  validates :title, :content, presence: true
   belongs_to :user
   has_many :comments  # commentsテーブルとのアソシエーション
 end

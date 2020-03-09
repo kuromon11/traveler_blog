@@ -21,7 +21,7 @@
 
 <div class="container">
   <% if current_user %>
-    <%= form_with(model: @post, local: true) do |form| %>
+    <%= form_with(model: [@post, @comment], local: true) do |form| %>
       <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
       <%= form.submit "送信" %>
     <% end %>
