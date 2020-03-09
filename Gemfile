@@ -68,3 +68,5 @@ gem 'pry-rails'
 gem 'font-awesome-rails'
 #ページネーションのため導入
 gem 'kaminari'
+#haml導入
+gem 'haml-rails'

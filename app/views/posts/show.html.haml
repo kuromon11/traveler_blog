@@ -1,0 +1,28 @@
+.postTitle
+  = @post.title
+.postDate
+  = @post.created_at
+.postAuthor
+- if user_signed_in? && current_user.id == @post.user_id
+  .postManage
+    = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
+    = link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete"
+.postContent
+  = simple_format @post.content
+.container
+  - if current_user
+    = form_with(model: [@post, @comment], local: true) do |form|
+      = form.text_area :text, placeholder: "コメントする", size: "70x5"
+      = form.submit "送信"
+  - else
+    %strong
+      %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+  .container__comments
+    %h4 ＜コメント一覧＞
+    - if @comments
+      - @comments.each do |comment|
+        %p
+          %strong
+            = link_to comment.user.nickname, "/users/#{comment.user_id}"
+            ：
+          = comment.text
