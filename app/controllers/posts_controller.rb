@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.includes(:user).order("created_at DESC")
+    # 投稿記事を新着順に並べ替え
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
 
   def new
@@ -35,7 +36,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
   end
 
 end

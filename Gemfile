@@ -64,5 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise' 
 #pry-rails導入
 gem 'pry-rails'
-
+#font-awesomeを使うため導入
 gem 'font-awesome-rails'
+#ページネーションのため導入
+gem 'kaminari'
