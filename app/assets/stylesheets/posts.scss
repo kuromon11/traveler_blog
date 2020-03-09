@@ -216,4 +216,18 @@ body{
   .user{
     padding: 15px 30px;
   }
+
+  // 検索フォーム
+  .search-form {
+    text-align: center;
+    padding-top: 8px;
+    .search-input {
+      width: 80%;
+      margin-right: 10px;
+    }
+  
+    .search-btn {
+      width: 10%;
+    }
+  }
 }

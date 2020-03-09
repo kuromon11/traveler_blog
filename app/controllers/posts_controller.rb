@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     # 投稿記事を新着順に並べ替え
@@ -17,7 +18,12 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments.includes(:user)
+    @comments = @post.comments.includes(:user).order("created_at DESC")
+  end
+
+  # searchアクションを作成
+  def search
+    @posts = Post.search(params[:keyword])#.includes(:user).order("created_at DESC")
   end
 
   def edit
