@@ -18,6 +18,8 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order("created_at DESC")
+    @likes_count = Like.all.count
+    @likes_count = Like.where(post_id: @post.id).count
   end
 
   # searchアクションを作成
