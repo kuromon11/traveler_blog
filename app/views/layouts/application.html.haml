@@ -28,9 +28,11 @@
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
         - else
           = link_to "ログイン", new_user_session_path, class: "header__right--btn"
-          = link_to "新規投稿", new_user_registration_path, class: "header__right--btn"
-
-
-
-    .contents
-      = yield
+          = link_to "新規投稿", new_user_registration_path, class: "header__right--btn"    
+    -# .top-wrapper
+    -#   .view
+    -#     .view__content
+    -#       %p.view__content__title JapanTraveler
+    -#       %p.view__content__text 日本を体感しよう
+    -# .contents
+    = yield

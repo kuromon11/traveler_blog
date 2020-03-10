@@ -1,7 +1,8 @@
-.postTitle
-  = @user.nickname
-  のマイページ
-= paginate(@posts)
-- @posts.each do |post|
-  = render partial: "posts/post", locals: { post: post }
-= paginate(@posts)
+.contents
+  .postTitle
+    = @user.nickname
+    のマイページ
+  = paginate(@posts)
+  - @posts.each do |post|
+    = render partial: "posts/post", locals: { post: post }
+  = paginate(@posts)
