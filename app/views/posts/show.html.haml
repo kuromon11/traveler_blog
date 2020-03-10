@@ -9,27 +9,38 @@
     = link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete"
 
 -# いいね
-- if Like.find_by(user_id: current_user.id, post_id: @post.id) 
-  = link_to(post_like_path(@post.id), method: :delete) do
-    %span.fas.fa-thumbs-up.fa-2x.like-btn-unlike
+- if current_user
+  - if Like.find_by(user_id: current_user.id, post_id: @post.id) 
+    = link_to(post_like_path(@post.id), method: :delete) do
+      %span.fas.fa-thumbs-up.fa-2x.like-btn-unlike
+  - else
+    = link_to(post_likes_path(@post.id), method: :post) do
+      %span.far.fa-thumbs-up.fa-2x.like-btn
+  = @likes_count 
 - else
-  = link_to(post_likes_path(@post.id), method: :post) do
-    %span.far.fa-thumbs-up.fa-2x.like-btn
-= @likes_count 
+  %strong
+    %p.not_login ※※※ いいね機能を利用する場合は新規登録/ログインが必要です！ ※※※
+  %span.far.fa-thumbs-up.fa-2x.like-btn
+  = @likes_count 
 
 -# テキスト内容
 .postContent
   = simple_format @post.content
 
+-# 画像
+- if @post.image.present?
+  = image_tag @post.image.url, class: 'postImage' 
+- else
+  %p.postImage
 -# コメント
 .container
   - if current_user
-    = form_with(model: [@post, @comment], local: true) do |form|
-      = form.text_area :text, placeholder: "コメントする", size: "70x5"
-      = form.submit "送信"
+    = form_with(model: [@post, @comment], class: "postComment", local: true) do |form|
+      = form.text_area :text, placeholder: "コメントする", size: "70x4"
+      = form.submit "送信", class: "postComment__submit"
   - else
     %strong
-      %p ※※※ コメントの投稿には新規登録/ログインが必要です！ ※※※
+      %p.not_login ※※※ コメント機能を利用する場合は新規登録/ログインが必要です！ ※※※
 
   -# 投稿されたコメント一覧
   .container__comments
