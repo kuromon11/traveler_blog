@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   def index
     # 投稿記事を新着順に並べ替え
-    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
 
   def new
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
   # searchアクションを作成
   def search
-    @posts = Post.search(params[:keyword]).includes(:user).order("created_at DESC").page(params[:page]).per(10)
+    @posts = Post.search(params[:keyword]).includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
 
   def edit

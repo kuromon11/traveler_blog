@@ -5,6 +5,7 @@
     %title JapanTraveler 〜日本を体感しよう〜
     = csrf_meta_tags
     = csp_meta_tag
+    -# フォント
     %link{:href => "https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700", :rel => "stylesheet"}/
     -# font-awesome
     %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
@@ -14,7 +15,8 @@
   %body
     %header.header
       .header__title
-        = link_to "JapanTraveler", root_path, class: "header__title--text"
+        = link_to root_path, class: "header__title--text" do
+          = image_tag("logo.png")
       - if user_signed_in?
         .header__left
           = link_to "都道府県検索", "#", class: "header__left--btn"
