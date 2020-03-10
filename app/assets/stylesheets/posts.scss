@@ -13,9 +13,9 @@ body{
 
   //ヘッダー部分
   .header{
-    height: 60px;
+    height: 70px;
     width: 100vw;
-    padding: 0 30px;
+    padding: 0 40px;
     background-color: #6088C6;
     color: #fff;
     display: flex;
@@ -23,7 +23,7 @@ body{
     &__title{
       &--text img{
         display: block;
-        height: 60px;
+        height: 70px;
         width: 150px;
         text-decoration: none;
         color: #fff;
@@ -36,7 +36,7 @@ body{
       &--btn{
         display: inline-block;
         text-decoration: none;
-        line-height: 60px;
+        line-height: 70px;
         color: #fff;
         margin-left:15px;
       }
@@ -48,7 +48,7 @@ body{
       &--btn{
         display: inline-block;
         text-decoration: none;
-        line-height: 60px;
+        line-height: 70px;
         color: #fff;
         margin-left:15px;
       }
@@ -61,7 +61,7 @@ body{
   .contents{
     margin: 20px auto 0;
     background-color: #fff;
-    height: calc(100vh - 60px - 20px);
+    height: calc(100vh - 70px - 20px);
     width: 70vw;
     overflow-y: scroll;
     // background-color:#CCFFFF;
