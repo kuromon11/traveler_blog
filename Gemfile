@@ -75,3 +75,5 @@ gem 'carrierwave'
 gem 'mini_magick'
 # 日本語化
 gem 'rails-i18n'
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
