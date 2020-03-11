@@ -22,7 +22,7 @@
   .container
     - if current_user
       = form_with(model: [@post, @comment], class: "postComment", local: true) do |form|
-        = form.text_area :text, placeholder: "コメントする", size: "70x4"
+        = form.text_area :text, placeholder: "コメントする", size: "100x4"
         = form.submit "送信", class: "postComment__submit"
 
     -# 投稿されたコメント一覧
