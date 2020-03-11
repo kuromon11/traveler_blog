@@ -8,26 +8,12 @@
     .postManage
       = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
       = link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete"
-
   -# いいね
-  - if current_user
-    - if Like.find_by(user_id: current_user.id, post_id: @post.id) 
-      = link_to(post_like_path(@post.id), method: :delete) do
-        %span.fas.fa-thumbs-up.fa-2x.like-btn-unlike
-    - else
-      = link_to(post_likes_path(@post.id), method: :post) do
-        %span.far.fa-thumbs-up.fa-2x.like-btn
-    = @likes_count 
-  - else
-    %strong
-      %p.not_login ※※※ いいね機能、コメント機能を利用するにはログインが必要です！ ※※※
-    %span.far.fa-thumbs-up.fa-2x.like-btn
-    = @likes_count 
-
+  #likes
+    = render partial: "likes/like", locals: { post: @post }
   -# テキスト内容
   .postContent
     = simple_format @post.content
-
   -# 画像
   - if @post.image.present?
     = image_tag @post.image.url, class: 'postImage' 
@@ -37,7 +23,7 @@
   .container
     - if current_user
       = form_with(model: [@post, @comment], class: "postComment", local: true) do |form|
-        = form.text_area :text, placeholder: "コメントする", size: "70x4"
+        = form.text_area :text, placeholder: "コメントする", size: "100x4"
         = form.submit "送信", class: "postComment__submit"
 
     -# 投稿されたコメント一覧

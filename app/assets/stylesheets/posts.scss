@@ -78,11 +78,11 @@ body{
         height: 400px;
         &__title {
           font-size: 40px;
-          color: white;
+          color: black;
         }
         &__text {
           font-size: 20px;
-          color: white;
+          color: black;
         }
       }
 
@@ -136,7 +136,7 @@ body{
     overflow-y: scroll;
     //背景に画像挿入
     background-image: url(japan.png);
-    background-size: 70%;
+    background-size: 65%;
     background-position: bottom;
     background-repeat:no-repeat; //繰り返さない指定
 
@@ -201,7 +201,10 @@ body{
             &--date{
               color: #000000;
               font-size: 8px;
-
+            }
+            &--likes{
+              line-height: 10px;
+              font-size: 10px;
             }
           }
         }
@@ -269,17 +272,31 @@ body{
       text-decoration: none;
       display: inline-block;
     }
+    //本文
     .postContent{
       margin: 20px 20px;
-      width: calc(70vw - 40px);
-      background-color: #AEC4E5;
+      width: calc(100% - 40px);
+      background-color: #A8DBA8;
+      &__submit{
+        display: block;
+        font-size: 20px;
+      }
     }
+    // コメント投稿、一覧
     .container {
-      padding: 10px;
+      padding: 20px 0;
+      .postComment {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        // #comment_text{
+
+        // }
+      }
       &__comments {
-        margin-top: 20px;
+        margin: 20px 10px 0 10px;
         padding: 10px;
-        background-color: #AEC4E5;
+        background-color: #A8DBA8;
       }
 
     }
