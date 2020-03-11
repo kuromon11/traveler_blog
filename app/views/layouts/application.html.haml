@@ -9,8 +9,10 @@
     %link{:href => "https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700", :rel => "stylesheet"}/
     -# font-awesome
     %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
+    -# jQuery読み込み
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    -# = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %header.header
@@ -28,9 +30,11 @@
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
         - else
           = link_to "ログイン", new_user_session_path, class: "header__right--btn"
-          = link_to "新規投稿", new_user_registration_path, class: "header__right--btn"
-
-
-
-    .contents
-      = yield
+          = link_to "新規投稿", new_user_registration_path, class: "header__right--btn"    
+    -# .top-wrapper
+    -#   .view
+    -#     .view__content
+    -#       %p.view__content__title JapanTraveler
+    -#       %p.view__content__text 日本を体感しよう
+    -# .contents
+    = yield
