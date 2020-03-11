@@ -10,13 +10,13 @@
       = link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete"
 
   -# いいね
-  - if current_user
+  - if user_signed_in?
     - if Like.find_by(user_id: current_user.id, post_id: @post.id) 
       = link_to(post_like_path(@post.id), method: :delete) do
-        %span.fas.fa-thumbs-up.fa-2x.like-btn-unlike
+        %span#like-btn-unlike.fas.fa-thumbs-up.fa-2x
     - else
       = link_to(post_likes_path(@post.id), method: :post) do
-        %span.far.fa-thumbs-up.fa-2x.like-btn
+        %span#like-btn.far.fa-thumbs-up.fa-2x
     = @likes_count 
   - else
     %strong
