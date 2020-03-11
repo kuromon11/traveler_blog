@@ -1,7 +1,5 @@
 .content
   .content__top
-    -# %p.content__top--image
-      -# %img{:alt => "", :src => "/assets/sample2.png"}/
     - if post.image.present?
       = image_tag post.image.url, class: 'content__top--image' 
     - else

@@ -9,7 +9,8 @@
       = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
       = link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete"
   -# いいね
-  = render partial: "like"
+  #likes
+    = render partial: "likes/like", locals: { post: @post }
   -# テキスト内容
   .postContent
     = simple_format @post.content

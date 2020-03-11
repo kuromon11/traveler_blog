@@ -289,13 +289,13 @@ body{
         display: flex;
         align-items: center;
         justify-content: space-around;
-        #comment_text{
+        // #comment_text{
 
-        }
+        // }
       }
       &__comments {
         margin: 20px 10px 0 10px;
-        padding: 10px 10px 0 10px;
+        padding: 10px;
         background-color: #A8DBA8;
       }
 

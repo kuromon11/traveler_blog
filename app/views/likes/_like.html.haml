@@ -1,0 +1,15 @@
+- if user_signed_in?
+  - if Like.find_by(user_id: current_user.id, post_id: @post.id) 
+    = link_to post_like_path(@post.id), method: :delete, id: "like-btn-unlike" do
+      %span.fas.fa-thumbs-up.fa-2x
+  - else
+    = link_to post_likes_path(@post.id), method: :post, id: "like-btn" do
+      %span.far.fa-thumbs-up.fa-2x
+  = @likes_count 
+- else
+  %strong
+    %p.not_login ※※※ いいね機能、コメント機能を利用するにはログインが必要です！ ※※※
+  %span.far.fa-thumbs-up.fa-2x.like-btn
+  = @likes_count 
+
+-# $('#like-btn-unlike').html("<%= j(render partial: 'likes/like', locals: {post: @post, like: @like, likes: @likes}) %>");
