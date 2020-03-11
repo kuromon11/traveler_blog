@@ -8,26 +8,11 @@
     .postManage
       = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
       = link_to "削除", post_path(@post.id), method: :delete, class: "postManage__delete"
-
   -# いいね
-  - if user_signed_in?
-    - if Like.find_by(user_id: current_user.id, post_id: @post.id) 
-      = link_to(post_like_path(@post.id), method: :delete) do
-        %span#like-btn-unlike.fas.fa-thumbs-up.fa-2x
-    - else
-      = link_to(post_likes_path(@post.id), method: :post) do
-        %span#like-btn.far.fa-thumbs-up.fa-2x
-    = @likes_count 
-  - else
-    %strong
-      %p.not_login ※※※ いいね機能、コメント機能を利用するにはログインが必要です！ ※※※
-    %span.far.fa-thumbs-up.fa-2x.like-btn
-    = @likes_count 
-
+  = render partial: "like"
   -# テキスト内容
   .postContent
     = simple_format @post.content
-
   -# 画像
   - if @post.image.present?
     = image_tag @post.image.url, class: 'postImage' 

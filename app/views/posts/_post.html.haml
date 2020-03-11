@@ -17,3 +17,7 @@
           = link_to post.user.nickname, user_path(post.user_id), class: "content__info__right__bottom--userName--btn"
         .content__info__right__bottom--date
           = post.created_at
+        %span.far.fa-thumbs-up.fa-2x.like-btn
+        -# いいね数を表示させたい
+        -# .content__info__right__bottom--likes
+        -# = @likes_count 
