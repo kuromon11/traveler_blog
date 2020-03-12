@@ -75,7 +75,7 @@ gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 # 日本語化
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.1' 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 #bootstrap導入
