@@ -14,6 +14,7 @@ body{
   .header{
     //ヘッダー固定
     position: fixed;
+    top: 0;
     z-index: 1;
     height: 70px;
     width: 100vw;
@@ -129,9 +130,9 @@ body{
     background: linear-gradient(to bottom, #A8DBA8, #79BD9A);
     margin: 0 auto;
     //ヘッダーの分を調整
-    padding-top: 70px;
+    margin-top: 70px;
     // background-color: #fff;
-    height: 100vh; 
+    height: calc(100vh - 70px); 
     width: 80vw;
     overflow-y: scroll;
     //背景に画像挿入
@@ -298,7 +299,6 @@ body{
         padding: 10px;
         background-color: #A8DBA8;
       }
-
     }
   }
 
@@ -347,6 +347,8 @@ body{
     }
   }
 
+  //ページネーション
+    
   //ログイン制限
   .not_login {
     text-align: center;

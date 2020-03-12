@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   def index
     # 投稿記事を新着順に並べ替え
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+    @all_ranks = Post.includes(:user).order("likes_count DESC").page(params[:page]).per(10)
   end
 
   def new

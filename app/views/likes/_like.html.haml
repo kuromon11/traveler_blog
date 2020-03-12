@@ -5,11 +5,12 @@
   - else
     = link_to post_likes_path(@post.id), method: :post, id: "like-btn" do
       %span.far.fa-thumbs-up.fa-2x
-  = @likes_count 
+  = post.likes_count 
 - else
   %strong
     %p.not_login ※※※ いいね機能、コメント機能を利用するにはログインが必要です！ ※※※
   %span.far.fa-thumbs-up.fa-2x.like-btn
-  = @likes_count 
+  = post.likes_count 
 
+-# いいね非同期化（未完成）
 -# $('#like-btn-unlike').html("<%= j(render partial: 'likes/like', locals: {post: @post, like: @like, likes: @likes}) %>");

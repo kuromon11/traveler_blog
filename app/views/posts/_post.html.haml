@@ -1,7 +1,8 @@
 .content
   .content__top
     - if post.image.present?
-      = image_tag post.image.url, class: 'content__top--image' 
+      = link_to post_path(post.id) do
+        = image_tag post.image.url, class: 'content__top--image' 
     - else
       %p.content__top--image
   .content__info
