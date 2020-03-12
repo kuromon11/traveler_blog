@@ -147,7 +147,8 @@ body{
       height: 60vh;
       border-bottom: 1px solid;
       border-style: none;
-      margin: 40px auto;
+      margin: 0 auto;
+      margin-bottom: 20px;
       &__top{
         width: 600px;
         height: 85%;
@@ -348,7 +349,11 @@ body{
   }
 
   //ページネーション
-    
+  .pagination{
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
   //ログイン制限
   .not_login {
     text-align: center;
