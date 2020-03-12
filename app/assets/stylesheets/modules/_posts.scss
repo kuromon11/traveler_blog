@@ -221,7 +221,7 @@ body{
 
     //メッセージの詳細画面=====================================
     .postTitle{
-      padding-top: 20px;
+      padding: 20px 0;
       text-align: center;
       font-size: 30px;
       font-weight: bold;
@@ -286,7 +286,7 @@ body{
     }
     // コメント投稿、一覧
     .container {
-      padding: 20px 0;
+      padding: 20px;
       .postComment {
         display: flex;
         align-items: center;
@@ -339,7 +339,7 @@ body{
     text-align: center;
     padding-top: 8px;
     .search-input {
-      width: 80%;
+      width: 60vw;
       margin-right: 10px;
     }
   
