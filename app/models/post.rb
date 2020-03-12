@@ -14,4 +14,8 @@ class Post < ApplicationRecord
       Post.all
     end
   end
+  #その記事をいいねしているか確認
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
 end

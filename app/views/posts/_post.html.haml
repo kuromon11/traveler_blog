@@ -1,7 +1,8 @@
 .content
   .content__top
     - if post.image.present?
-      = image_tag post.image.url, class: 'content__top--image' 
+      = link_to post_path(post.id) do
+        = image_tag post.image.url, class: 'content__top--image' 
     - else
       %p.content__top--image
   .content__info
@@ -16,6 +17,5 @@
         .content__info__right__bottom--date
           = post.created_at
         %span.far.fa-thumbs-up.fa-2x.like-btn
-        -# いいね数を表示させたい
-        -# .content__info__right__bottom--likes
-        -# = @likes_count 
+          = post.likes_count 
+

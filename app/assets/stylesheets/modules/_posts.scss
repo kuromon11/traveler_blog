@@ -14,6 +14,7 @@ body{
   .header{
     //ヘッダー固定
     position: fixed;
+    top: 0;
     z-index: 1;
     height: 70px;
     width: 100vw;
@@ -129,9 +130,9 @@ body{
     background: linear-gradient(to bottom, #A8DBA8, #79BD9A);
     margin: 0 auto;
     //ヘッダーの分を調整
-    padding-top: 70px;
+    margin-top: 70px;
     // background-color: #fff;
-    height: 100vh; 
+    height: calc(100vh - 70px); 
     width: 80vw;
     overflow-y: scroll;
     //背景に画像挿入
@@ -146,7 +147,8 @@ body{
       height: 60vh;
       border-bottom: 1px solid;
       border-style: none;
-      margin: 40px auto;
+      margin: 0 auto;
+      margin-bottom: 20px;
       &__top{
         width: 600px;
         height: 85%;
@@ -219,7 +221,7 @@ body{
 
     //メッセージの詳細画面=====================================
     .postTitle{
-      padding-top: 20px;
+      padding: 20px 0;
       text-align: center;
       font-size: 30px;
       font-weight: bold;
@@ -284,7 +286,7 @@ body{
     }
     // コメント投稿、一覧
     .container {
-      padding: 20px 0;
+      padding: 20px;
       .postComment {
         display: flex;
         align-items: center;
@@ -298,7 +300,6 @@ body{
         padding: 10px;
         background-color: #A8DBA8;
       }
-
     }
   }
 
@@ -338,7 +339,7 @@ body{
     text-align: center;
     padding-top: 8px;
     .search-input {
-      width: 80%;
+      width: 60vw;
       margin-right: 10px;
     }
   
@@ -347,6 +348,12 @@ body{
     }
   }
 
+  //ページネーション
+  .pagination{
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 0;
+  }
   //ログイン制限
   .not_login {
     text-align: center;

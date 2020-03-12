@@ -66,6 +66,7 @@ gem 'devise'
 gem 'pry-rails'
 #font-awesomeを使うため導入
 gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 #ページネーションのため導入
 gem 'kaminari'
 #haml導入
@@ -74,6 +75,8 @@ gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 # 日本語化
-gem 'rails-i18n'
+gem 'rails-i18n', '~> 5.1' 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+#bootstrap導入
+gem 'bootstrap', '~> 4.3.1'
