@@ -225,6 +225,11 @@ body{
       text-align: center;
       font-size: 30px;
       font-weight: bold;
+      //順位
+      &__content{
+        font-size: 20px;
+        padding: 5px 0 5px 20px;
+      }
     }
     .postDate{
       font-size: 15px;

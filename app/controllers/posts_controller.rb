@@ -27,6 +27,11 @@ class PostsController < ApplicationController
   def search
     @posts = Post.search(params[:keyword]).includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
+  # rankingアクションを追加
+  def ranking
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+    @all_ranks = Post.includes(:user).order("likes_count DESC").page(params[:page]).per(10)
+  end
 
   def edit
     @post = Post.find(params[:id])
