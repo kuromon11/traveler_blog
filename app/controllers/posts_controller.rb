@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :move_to_index, except: [:index, :show] 
+
   def index
     # 投稿記事を新着順に並べ替え
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
@@ -8,15 +10,19 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @tag = Tag.new
   end
 
   def create
+    tag_list = params[:post][:name].split(",")
+    @blog.save_posts(tag_list)
     Post.create(post_params)
     redirect_to root_path
   end
 
   def show
     @post = Post.find(params[:id])
+    # @tag = Tag.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order("created_at DESC")
     @likes_count = Like.all.count
@@ -35,12 +41,14 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    # @tag = Tag.find(params[:id])
   end
 
   def update
     post = Post.find(params[:id])
+    # tag = Tag.find(params[:id])
     post.update(post_params)
-    redirect_to post_path(post.id)
+    redirect_to post_path(post.id, tag.id)
   end
 
   def destroy
@@ -52,6 +60,10 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    redirect_to root_path, action: :index unless user_signed_in?
   end
 
 end
