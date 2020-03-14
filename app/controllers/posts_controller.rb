@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show] 
 
   def index
+    # @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
     # 投稿記事を新着順に並べ替え
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
     @all_ranks = Post.includes(:user).order("likes_count DESC").page(params[:page]).per(10)
@@ -10,12 +11,14 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @tag = Tag.new
+    # @tag = Tag.find(params[:id])
   end
 
   def create
     # tag_list = params[:post][:name].split(",")
-    Post.create(post_params)
+    # tag = Tag.find(params[:tag_id])
+    post = Post.create(post_params)
+    # post.tags << tag
     redirect_to root_path
   end
 
@@ -58,7 +61,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :image, tag_ids: []).merge(user_id: current_user.id)
+    params.require(:post).permit(:tag_ids, :title, :content, :image).merge(user_id: current_user.id)
   end
 
   def move_to_index

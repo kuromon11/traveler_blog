@@ -16,6 +16,9 @@
           = link_to post.user.nickname, user_path(post.user_id), class: "content__info__right__bottom--userName--btn"
         .content__info__right__bottom--date
           = post.created_at
+        .content__info__right__bottom--tag  
+          = post.tags&.first&.name 
         %span.far.fa-thumbs-up.fa-2x.like-btn
-          = post.likes_count 
+          = post.likes_count   
+
 
