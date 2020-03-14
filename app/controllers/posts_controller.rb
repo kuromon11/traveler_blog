@@ -14,8 +14,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    tag_list = params[:post][:name].split(",")
-    @blog.save_posts(tag_list)
+    # tag_list = params[:post][:name].split(",")
     Post.create(post_params)
     redirect_to root_path
   end
@@ -48,7 +47,7 @@ class PostsController < ApplicationController
     post = Post.find(params[:id])
     # tag = Tag.find(params[:id])
     post.update(post_params)
-    redirect_to post_path(post.id, tag.id)
+    redirect_to post_path(post.id)
   end
 
   def destroy
@@ -59,7 +58,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :content, :image).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :content, :image, tag_ids: []).merge(user_id: current_user.id)
   end
 
   def move_to_index
