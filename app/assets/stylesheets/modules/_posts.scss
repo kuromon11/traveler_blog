@@ -60,41 +60,82 @@ body{
   }
   // ファーストビュー====================================
   .top-wrapper {
-    background-color: white;
+    background-color: #ffffff;
     .view{
-      padding-top: 70px;
+      margin-top: 70px;
       width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-direction: column;
+      min-width: 750px;
+      height: calc(100vh - 70px);
+      // flex-direction: column;
+      background-color: rgba(255,255,255,0.8);
       background-image: url(background-image0.png);
       background-size: cover;
       background-attachment: fixed;//背景画像の位置を固定。
-      background-position: top 40% right 40%;//位置調整
+      background-position: top 40% right 50%;//位置調整
       opacity: 0.8;
-      position: relative;
       &__content {
-        height: 400px;
+        // background-color: white;
+        height: 100%;
+        width: 35vw;
+        min-width: 500px;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        text-align: center;
         &__title {
-          font-size: 40px;
+          font-size: 80px;
           color: black;
         }
         &__text {
-          font-size: 20px;
+          font-size: 24px;
           color: black;
         }
+        &__btn{
+          width: 400px;
+          line-height: 40px;
+          margin: 20px auto;
+        }
       }
+      
+      // devise関係
+      &__devise {
+        // background-color: white;
+        height: 100%;
+        width: 35vw;
+        min-width: 750px;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(255,255,255,0.8);
+        h1{
+          text-align: center;
+          margin-bottom: 30px;
+        }
+        &__test{
+          text-align: center;
+        }
+      }
+      // &__devise {
+      //   // background-color: white;
+      //   height: 100%;
+      //   width: 650px;
+      //   min-width: 650px;
+      //   flex-direction: column;
+      //   display: flex;
+      //   justify-content: center;
+      //   // align-items: center;
+
+      // }
+    }
 
       //新規orログイン
-      &__user{
+      // .form-group{
         // display: inline-block;
-        position: absolute;
-        background-color: #79BD9A;
-      }
-    }
+        // position: absolute;
+        // background-color: #79BD9A;
+      // }
   }
+
 // .main-copy {
 //   font-size: 30px;
 // }
@@ -234,7 +275,11 @@ body{
     .postDate{
       font-size: 15px;
       color: #999;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      &__updated {
+        margin-left: 10px;
+      }
     }
     .postAuthor{
       font-size: 15px;
@@ -295,10 +340,10 @@ body{
       .postComment {
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        // #comment_text{
-
-        // }
+        justify-content: center;
+        &__submit{
+          margin-left: 10px;
+        }
       }
       &__comments {
         margin: 20px 10px 0 10px;

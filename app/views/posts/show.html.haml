@@ -2,7 +2,12 @@
   .postTitle
     = @post.title
   .postDate
-    = @post.created_at
+    .postDate__created
+      投稿時間:
+      = @post.created_at.strftime("%Y-%m-%d %H:%M")
+    .postDate__updated
+      更新時間:
+      = @post.updated_at.strftime("%Y-%m-%d %H:%M")
   .postAuthor
   - if user_signed_in? && current_user.id == @post.user_id
     .postManage
@@ -24,7 +29,7 @@
     - if current_user
       = form_with(model: [@post, @comment], class: "postComment", local: true) do |form|
         = form.text_area :text, placeholder: "コメントする", size: "100x4"
-        = form.submit "送信", class: "postComment__submit"
+        = form.submit "送信", class: "btn btn-outline-secondary postComment__submit"
 
     -# 投稿されたコメント一覧
     .container__comments
