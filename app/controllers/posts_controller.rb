@@ -24,7 +24,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    # @tag = Tag.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order("created_at DESC")
     @likes_count = Like.all.count
@@ -35,6 +34,14 @@ class PostsController < ApplicationController
   def search
     @posts = Post.search(params[:keyword]).includes(:user).order("created_at DESC").page(params[:page]).per(5)
   end
+
+  # prefecturesアクションを追加
+  def prefectures
+    # 条件演算子：trueなら都道府県検索
+    @tag = Tag.find(params[:tag_id]) if params[:tag_id].present?
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts.includes(:user).order("created_at DESC").page(params[:page]).per(5) : Post.all
+  end
+
   # rankingアクションを追加
   def ranking
     @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
@@ -43,12 +50,10 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    # @tag = Tag.find(params[:id])
   end
 
   def update
     post = Post.find(params[:id])
-    # tag = Tag.find(params[:id])
     post.update(post_params)
     redirect_to post_path(post.id)
   end

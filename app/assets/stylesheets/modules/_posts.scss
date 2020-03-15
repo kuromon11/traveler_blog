@@ -33,25 +33,13 @@ body{
         opacity: 0.5;
       }
     }
-    &__left{
-      &--btn{
-        display: inline-block;
-        text-decoration: none;
-        line-height: 70px;
-        color: #fff;
-        margin-left:15px;
-      }
-      :hover{
-        opacity: 0.4;
-      }
-    }
     &__right{
       &--btn{
         display: inline-block;
         text-decoration: none;
         line-height: 70px;
         color: #fff;
-        margin-left:15px;
+        margin-left:20px;
       }
       :hover{
         opacity: 0.4;
@@ -264,12 +252,16 @@ body{
     .postTitle{
       padding: 20px 0;
       text-align: center;
-      font-size: 30px;
+      font-size: 24px;
       font-weight: bold;
       //順位
-      &__content{
+      &__rank{
         font-size: 20px;
         padding: 5px 0 5px 20px;
+      }
+      &__content{
+        font-size: 24px;
+        padding: 5px 0 5px 40px;
       }
     }
     .postDate{
@@ -351,6 +343,23 @@ body{
         background-color: #A8DBA8;
       }
     }
+    //都道府県検索
+    &__prefecture__Form{
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      #tag_id{
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+    .tag-index{
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
   }
 
   //新規投稿、編集========================================
@@ -408,4 +417,6 @@ body{
   .not_login {
     text-align: center;
   }
+
+
 }

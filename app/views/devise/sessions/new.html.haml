@@ -17,5 +17,5 @@
             = f.label :remember_me, class: 'form-check-label' do
               = resource.class.human_attribute_name('remember_me')
         .form-group
-          = f.submit  t('.sign_in'), class: 'btn btn-primary'
+          = f.submit  t('.sign_in'), class: 'btn btn-primary btn-block' 
       = render 'devise/shared/links'
