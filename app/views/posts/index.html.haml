@@ -3,13 +3,19 @@
     .view
       .view__content
         %p.view__content__title JapanTraveler
-        %p.view__content__text 日本を体感しよう
+        %p.view__content__text 日本には47の都道府県があります。
+        %p.view__content__text 色々な都道府県を旅することで
+        %p.view__content__text ユニークな体験ができるでしょう。
+        %p.view__content__text この素敵な日本を一緒に体感しましょう！
+        %p.view__content__text 今すぐログイン！
+        = link_to "新規登録", new_user_registration_path, class: "btn btn-success view__content__btn"
+        = link_to "ログイン", new_user_session_path, class: "btn btn-success view__content__btn"
 .contents
   -#検索 
   - if user_signed_in?
     = form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form|
       = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
-      = form.submit "検索", class: "search-btn"
+      = form.submit "検索", class: "btn btn-outline-secondary search-btn"
   -# タグ一覧
   -# - @post.tags.each do |tag|
   -#   = tag.name
