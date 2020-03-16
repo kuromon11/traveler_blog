@@ -39,10 +39,10 @@ body{
         text-decoration: none;
         line-height: 70px;
         color: #fff;
-        margin-left:20px;
+        margin-left:16px;
       }
       :hover{
-        opacity: 0.4;
+        opacity: 0.5;
       }
     }
   }
@@ -103,6 +103,7 @@ body{
         }
         &__test{
           text-align: center;
+          font-size: 20px;
         }
       }
     }
@@ -194,6 +195,7 @@ body{
           &__top{
             font-size: 24px;
             font-weight: bold;
+            line-height: 24px;
             &--title{
               text-decoration: none;
               color: #000000;
@@ -201,7 +203,8 @@ body{
           }
           &__bottom{
             width: 100%;
-            font-size: 15px;
+            font-size: 14px;
+            line-height: 24px;
             color: #000000;
             display: flex;
             justify-content: flex-end;
@@ -215,7 +218,13 @@ body{
             }
             &--date{
               color: #000000;
-              font-size: 8px;
+              font-size: 14px;
+              margin-right: 40px;
+            }
+            &--tag{
+              color: #000000;
+              font-size: 24px;
+              margin-right: 40px;
             }
             &--likes{
               line-height: 10px;
@@ -238,6 +247,9 @@ body{
       text-align: center;
       font-size: 24px;
       font-weight: bold;
+      // &__prefecture{
+      //   font-size: 16px;
+      // }
       //順位
       &__rank{
         font-size: 20px;
@@ -250,7 +262,6 @@ body{
     }
     .postDate{
       font-size: 15px;
-      color: #999;
       display: flex;
       justify-content: center;
       &__updated {
@@ -259,7 +270,6 @@ body{
     }
     .postAuthor{
       font-size: 15px;
-      color: #999;
       text-align: center;
     }
     //修正・削除

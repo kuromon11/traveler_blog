@@ -3,7 +3,7 @@
   .view
     .view__devise
       %h1= t('.sign_in')
-      .view__devise__test (お試し)Eメール：test@test｜パスワード：testtest
+      .view__devise__test (お試し) Eメール：test@test｜パスワード：testtest
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-group
           = f.label :email

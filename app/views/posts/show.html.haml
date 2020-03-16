@@ -1,6 +1,8 @@
 .contents
   .postTitle
     = @post.title
+    @
+    = @post.tags&.first&.name 
   .postDate
     .postDate__created
       投稿時間:
