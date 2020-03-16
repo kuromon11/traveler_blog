@@ -2,10 +2,13 @@
   -# いいね数ランキング
   .postTitle ランキング
   - @all_ranks.each.with_index(1) do |post, i|
-    .postTitle__content
+    .postTitle__rank
       第
       = i
       位
+    .postTitle__content
+      [
       = post.title
-      = post.likes_count 
+      ]
+      = post.likes_count
     = render partial: "post", locals: { post: post }

@@ -18,6 +18,15 @@ class Post < ApplicationRecord
     end
   end
   
+  # def self.prefectures(prefectures)
+  #   if prefectures
+  #     tags.find_by(tag_id: tag_id)
+  #     Post.where('post.tags&.first&.name  LIKE(?)', "%#{prefectures}%")
+  #   # else
+  #   #   Post.all
+  #   end
+  # end
+
   #その記事をいいねしているか確認
   def like_user(user_id)
     likes.find_by(user_id: user_id)

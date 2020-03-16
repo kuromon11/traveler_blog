@@ -3,7 +3,7 @@
   .view
     .view__devise
       %h1= t('.sign_in')
-      .view__devise__test (お試し)Eメール：test@test｜パスワード：testtest
+      .view__devise__test (お試し) Eメール：test@test｜パスワード：testtest
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .form-group
           = f.label :email
@@ -17,5 +17,5 @@
             = f.label :remember_me, class: 'form-check-label' do
               = resource.class.human_attribute_name('remember_me')
         .form-group
-          = f.submit  t('.sign_in'), class: 'btn btn-primary'
+          = f.submit  t('.sign_in'), class: 'btn btn-primary btn-block' 
       = render 'devise/shared/links'

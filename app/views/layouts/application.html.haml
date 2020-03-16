@@ -32,13 +32,10 @@
       .header__title
         = link_to root_path, class: "header__title--text" do
           = image_tag("logo.png")
-      - if user_signed_in?
-        .header__left
-          = link_to "都道府県検索", "#", class: "btn-outline-success header__left--btn"
-          -# = link_to "タグ検索", "#", class: "btn-outline-success header__left--btn"
-          = link_to "ランキング", ranking_posts_path(@posts), class: "btn-outline-success header__left--btn"
       .header__right
         - if user_signed_in?
+          = link_to "都道府県検索", prefectures_posts_path, class: "btn-outline-success header__right--btn"
+          = link_to "ランキング", ranking_posts_path(@posts), class: "btn-outline-success header__right--btn"
           = link_to current_user.nickname, user_path(current_user), class: "btn-outline-success header__right--btn"
           = link_to "新規投稿", new_post_path, class: "btn-outline-success header__right--btn"
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-outline-success header__right--btn"

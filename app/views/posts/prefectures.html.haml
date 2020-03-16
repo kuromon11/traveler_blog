@@ -1,0 +1,17 @@
+.contents
+  .contents__prefecture
+    = form_tag prefectures_posts_path, method: :get, class: 'contents__prefecture__Form' do
+      = select_tag :tag_id,                                                       |
+        options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]), |
+        {                                                                         |
+          prompt: 'タグで絞り込み検索',                                                    |
+          onchange: 'submit(this.form);'                                          |
+        }                                                                         |
+    - if params[:tag_id].present?
+      .tag-index
+        = @tag.name
+        の記事一覧
+      = paginate(@posts)
+      - @posts.each do |post|
+        = render partial: "post", locals: { post: post }
+      = paginate(@posts)
