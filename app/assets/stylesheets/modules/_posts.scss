@@ -64,12 +64,13 @@ body{
       &__content {
         // background-color: white;
         height: 100%;
-        width: 35vw;
+        width: 40vw;
         min-width: 500px;
         flex-direction: column;
-        display: flex;
+        // display: flex;
         justify-content: center;
         text-align: center;
+        display: none;
         &__title {
           font-size: 80px;
           color: black;
@@ -81,7 +82,8 @@ body{
         &__btn{
           width: 400px;
           line-height: 40px;
-          margin: 20px auto;
+          margin: 0 auto;
+          margin-bottom: 40px;
         }
       }
       
@@ -103,25 +105,7 @@ body{
           text-align: center;
         }
       }
-      // &__devise {
-      //   // background-color: white;
-      //   height: 100%;
-      //   width: 650px;
-      //   min-width: 650px;
-      //   flex-direction: column;
-      //   display: flex;
-      //   justify-content: center;
-      //   // align-items: center;
-
-      // }
     }
-
-      //新規orログイン
-      // .form-group{
-        // display: inline-block;
-        // position: absolute;
-        // background-color: #79BD9A;
-      // }
   }
 
 // .main-copy {
