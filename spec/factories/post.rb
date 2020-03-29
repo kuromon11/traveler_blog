@@ -3,7 +3,7 @@ FactoryBot.define do
   factory :post do
     title              {"test"}
     content                 {"kkk@gmail.com"}
-    image              {test1.jpg}
+    image              {"spec/factories/test.jpg"}
   end
 
 end
