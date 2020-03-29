@@ -17,9 +17,15 @@ class PostsController < ApplicationController
   def create
     # tag_list = params[:post][:name].split(",")
     # tag = Tag.find(params[:tag_id])
-    post = Post.create(post_params)
+    @post = Post.create(post_params)
     # post.tags << tag
-    redirect_to root_path
+    
+    if @post.save
+      redirect_to root_path
+    else
+      render 'new'
+      # redirect_to new_item_path
+    end
   end
 
   def show
