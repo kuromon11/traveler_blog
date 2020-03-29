@@ -1,6 +1,6 @@
 = form_with model: @post, class: :form, local: true do |form|
   -# タグ追加
-  = form.collection_select :tag_ids, Tag.all, :id, :name, class: :form__tagSelect
+  = form.collection_select :tag_ids, Tag.all, :id, :name, {prompt: "選択してください"}, class: :form__tagSelect
   = form.text_field :title, placeholder: :"タイトル ※必須 ", class: :form__title
   = form.text_area :content, placeholder: :"本文", class: :form__content
   = form.file_field :image, class: :form__image
