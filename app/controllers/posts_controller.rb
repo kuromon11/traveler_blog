@@ -24,7 +24,6 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       render 'new'
-      # redirect_to new_item_path
     end
   end
 
