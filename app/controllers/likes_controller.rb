@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     @like.save
     @posts = Post.all
     @likes = Like.where(post_id: params[:post_id])
-    redirect_to ("/posts/#{params[:post_id]}")
+    redirect_to "/posts/#{params[:post_id]}"
     # format形式で分岐（非同期化）
     # if @like.save
     #   respond_to do |format|
@@ -21,7 +21,7 @@ class LikesController < ApplicationController
     @like.destroy
     @posts = Post.all
     @likes = Like.where(post_id: params[:post_id])
-    redirect_to ("/posts/#{params[:post_id]}")
+    redirect_to "/posts/#{params[:post_id]}"
     # format形式で分岐（非同期化）
     # if @like.destroy
     #   respond_to do |format|
@@ -30,7 +30,6 @@ class LikesController < ApplicationController
     #   end
     # end
   end
-
 
   private
   def post_params
