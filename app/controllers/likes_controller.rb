@@ -6,13 +6,6 @@ class LikesController < ApplicationController
     @posts = Post.all
     @likes = Like.where(post_id: params[:post_id])
     redirect_to "/posts/#{params[:post_id]}"
-    # format形式で分岐（非同期化）
-    # if @like.save
-    #   respond_to do |format|
-    #     format.html {redirect_to ("/posts/#{params[:post_id]}") }
-    #     format.json
-    #   end
-    # end
   end
 
   def destroy
@@ -22,13 +15,6 @@ class LikesController < ApplicationController
     @posts = Post.all
     @likes = Like.where(post_id: params[:post_id])
     redirect_to "/posts/#{params[:post_id]}"
-    # format形式で分岐（非同期化）
-    # if @like.destroy
-    #   respond_to do |format|
-    #     format.html {redirect_to ("/posts/#{params[:post_id]}") }
-    #     format.json
-    #   end
-    # end
   end
 
   private
