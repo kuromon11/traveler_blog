@@ -1,13 +1,19 @@
-# JapanTraveler
+# JapanTraveler:japan:
 
-概要<br>
+## 概要
+### 🌐  App URL
 ### **https://google.com**  
 日本を体感してもらうサイトです。<br>
 日本国内に特化した旅行系ブログアプリ<br>
-使用言語<br>
-Haml,SCSS,Ruby,RubyonRails,Javascript,jQuery,Bootstrap,AWS,
+## 使用言語<br>
+Haml,SCSS,Bootstrap,Ruby,RubyonRails,Javascript,jQuery,AWS,
 
-主な仕様<br>
+## 目的
+* 日本人として日本のことを知っておきたい<br>
+* 将来、色々な都道府県に行ってみたい<br>
+* 地方ならではの良いところがある<br>
+
+## 主な仕様
 * 記事 一覧/投稿/詳細/編集/削除<br>
 * ユーザー管理(devise) 登録/マイページ/コメント/<br>
 * 画像投稿<br>
@@ -17,12 +23,17 @@ Haml,SCSS,Ruby,RubyonRails,Javascript,jQuery,Bootstrap,AWS,
 * いいね機能<br>
 * 都道府県検索/用語検索/いいねランキング<br>
 
-目的<br>
-* 日本人として日本のことを知っておきたい<br>
-* 将来、色々な都道府県に行ってみたい<br>
-* 地方ならではの良いところがある<br>
- 
-使い方
+## 構築方法
+
+## 使い方
+上記のアドレスにアクセスした際のトップページ画面です。<br>
+ユーザーの新規登録画面です。<br>
+ログイン画面です。SNS認証(Twitter,Facebook)を導入しております。<br>
+新規投稿画面です。<br>
+
+
+
+
 
 
 * ...
