@@ -6,22 +6,11 @@
 @import "font-awesome";
 //scss
 @import "config/colors";
+@import "config/setting";
 @import "modules/posts";
 @import "modules/users";
 @import "modules/likes";
 @import "modules/comments";
 
-// ログイン画面
-.container-login {
-  @extend .container-fluid;
-  max-width: 576px;
-  padding: 2rem;
-}
 
-// 「ログインしました」などのフラッシュ用スタイル
-.alert-notice {
-  @extend .alert-info;
-}
-.alert-alert {
-  @extend .alert-danger;
-}
+

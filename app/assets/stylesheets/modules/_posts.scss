@@ -1,15 +1,9 @@
-*{
-  box-sizing: border-box;
-}
-//フォント指定
-$mainFont: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-
 body{
 
   //body要素で他のビューファイルに行っても変わらない
-  background: -moz-linear-gradient(top, #68C5F3, #64BCFC);
-  background: -webkit-linear-gradient(top, #68C5F3, #64BCFC);
-  background: linear-gradient(to bottom, #68C5F3, #64BCFC);
+  background: -moz-linear-gradient(top, $LightBlueColor, $DarkBlueColor);
+  background: -webkit-linear-gradient(top, $LightBlueColor, $DarkBlueColor);
+  background: linear-gradient(to bottom, $LightBlueColor, $DarkBlueColor);
   min-width: 750px;
   min-height: 650px;
   font-family: $mainFont;
@@ -23,7 +17,7 @@ body{
     height: 70px;
     width: 100%;
     padding: 0 40px;
-    background-color: #64BCFC;
+    background-color: $DarkBlueColor;
     color: #fff;
     display: flex;
     justify-content: space-between;   
