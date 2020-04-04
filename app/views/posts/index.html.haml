@@ -2,12 +2,6 @@
 - unless user_signed_in?
   .top-wrapper
     .view
-      -# JSでコンテンツ表示
-      :javascript
-        $(function() {
-          $('#slide').fadeIn(800);
-          $('#slide').css('display', 'flex');
-        });
       .view__content#slide
         %p.view__content__title JapanTraveler
         %p.view__content__text 日本には47の都道府県があります。
@@ -17,6 +11,12 @@
         = link_to "新規登録", new_user_registration_path, class: "btn btn-success view__content__btn"
         = link_to "ログイン", new_user_session_path, class: "btn btn-success view__content__btn"
         %p.view__content__text ↓↓↓記事の一覧はこちら↓↓↓
+      -# JSでコンテンツ表示
+      :javascript
+        $(function() {
+          $('#slide').fadeIn(800);
+          $('#slide').css('display', 'flex');
+        });
 .contents
   -#検索 
   - if user_signed_in?
