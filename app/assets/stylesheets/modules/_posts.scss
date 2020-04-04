@@ -1,5 +1,4 @@
 body{
-
   //body要素で他のビューファイルに行っても変わらない
   background: -moz-linear-gradient(top, $LightBlueColor, $DarkBlueColor);
   background: -webkit-linear-gradient(top, $LightBlueColor, $DarkBlueColor);
@@ -194,31 +193,31 @@ body{
             line-height: 24px;
             &--title{
               text-decoration: none;
-              color: #000000;
+              color: $TextBlackColor;
             }
           }
           &__bottom{
             width: 100%;
             font-size: 14px;
             line-height: 24px;
-            color: #000000;
+            color: $TextBlackColor;
             display: flex;
             justify-content: flex-end;
             &--userName{
-              color: #000000;
+              color: $TextBlackColor;
               margin-right: 10px;
               &--btn{
                 text-decoration: none;
-                color: #000000;
+                color: $TextBlackColor;
               }
             }
             &--date{
-              color: #000000;
+              color: $TextBlackColor;
               font-size: 14px;
               margin-right: 40px;
             }
             &--tag{
-              color: #000000;
+              color: $TextBlackColor;
               font-size: 24px;
               margin-right: 40px;
             }
@@ -351,7 +350,6 @@ body{
       margin-bottom: 10px;
     }
   }
-
   //新規投稿、編集========================================
   .form{
     width: 85%;
@@ -369,10 +367,6 @@ body{
       height: 50%;
       margin-top: 15px;
     }
-    // &__image {
-      // display: none; 
-      // cursor: pointer;
-    // }
     &__btn{
       display: block;
       width: 30%;
@@ -382,7 +376,6 @@ body{
   .user{
     padding: 15px 30px;
   }
-
   // 検索フォーム
   .search-form {
     text-align: center;
@@ -391,12 +384,10 @@ body{
       width: 60vw;
       margin-right: 10px;
     }
-  
     .search-btn {
       width: 10%;
     }
   }
-
   //ページネーション
   .pagination{
     justify-content: center;
@@ -407,6 +398,4 @@ body{
   .not_login {
     text-align: center;
   }
-
-
 }
