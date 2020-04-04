@@ -1,10 +1,11 @@
+*{
+  box-sizing: border-box;
+}
 //フォント指定
 $mainFont: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 
 body{
-  *{
-    box-sizing: border-box;
-  }
+
   //body要素で他のビューファイルに行っても変わらない
   background: -moz-linear-gradient(top, #68C5F3, #64BCFC);
   background: -webkit-linear-gradient(top, #68C5F3, #64BCFC);
@@ -20,9 +21,9 @@ body{
     top: 0;
     z-index: 1;
     height: 70px;
-    width: 100vw;
+    width: 100%;
     padding: 0 40px;
-    background-color: #79BD9A;
+    background-color: #64BCFC;
     color: #fff;
     display: flex;
     justify-content: space-between;   
@@ -54,22 +55,21 @@ body{
     background-color: #ffffff;
     .view{
       margin-top: 70px;
-      width: 100vw;
+      width: 100%;
       min-width: 750px;
       height: calc(100vh - 70px);
-      // flex-direction: column;
-      background-color: rgba(255,255,255,0.8);
       background-image: image-url("background-image1.png");
       background-size: cover;
       background-attachment: fixed;//背景画像の位置を固定。
-      background-position: top 40% right 50%;//位置調整
-      // opacity: 0.8;
+      background-position: top 100%;//位置調整
+      position: relative;
       &__content {
+        position: absolute;
         height: 100%;
-        width: 40vw;
+        // widthの割合を下げる程コンテンツが左に移動する
+        width: 100%;
         min-width: 500px;
         flex-direction: column;
-        // display: flex;
         justify-content: center;
         text-align: center;
         display: none;
@@ -148,13 +148,14 @@ body{
     //ヘッダーの分を調整
     margin-top: 70px;
     height: calc(100vh - 70px); 
-    width: 80vw;
+    width: 80%;
+    min-width: 750px;
     overflow-y: scroll;
     //背景に画像挿入
     background-image: url(japan.png);
     background-size: 65%;
     background-position: bottom;
-    background-repeat:no-repeat; //繰り返さない指定
+    background-repeat: no-repeat; //繰り返さない指定
 
     //1つあたりのcontent=================================
     .content{
