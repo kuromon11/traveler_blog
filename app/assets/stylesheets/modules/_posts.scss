@@ -133,13 +133,9 @@ body{
   .contents{
     border: 1px solid;
     border-color: white;
-    background: -moz-linear-gradient(top, #A8DBA8, #79BD9A);
-    background: -webkit-linear-gradient(top, #A8DBA8, #79BD9A);
-    background: linear-gradient(to bottom, #A8DBA8, #79BD9A);
     margin: 0 auto;
     //ヘッダーの分を調整
     margin-top: 70px;
-    height: calc(100vh - 70px); 
     width: 80%;
     min-width: 750px;
     overflow-y: scroll;
