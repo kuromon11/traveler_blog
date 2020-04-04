@@ -98,6 +98,14 @@ body{
         &__test{
           text-align: center;
           font-size: 20px;
+          margin-bottom: 40px;
+        }
+        .devise-contents{
+          width: 60%;
+          margin: 0 auto;
+          &__form-group{
+            margin-bottom: 20px;
+          }
         }
       }
     }
