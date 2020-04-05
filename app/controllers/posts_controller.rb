@@ -11,13 +11,15 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.images.new
     # @tag = Tag.find(params[:id])
   end
 
   def create
+
+    @post = Post.new(post_params)
     # tag_list = params[:post][:name].split(",")
     # tag = Tag.find(params[:tag_id])
-    @post = Post.create(post_params)
     # post.tags << tag
     
     if @post.save
@@ -71,7 +73,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:tag_ids, :title, :content, :image).merge(user_id: current_user.id)
+    params.require(:post).permit(:tag_ids, :title, :content, images_attributes: [:id, :src]).merge(user_id: current_user.id)
   end
 
   def move_to_index

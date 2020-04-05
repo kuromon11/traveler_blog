@@ -6,11 +6,12 @@ class Post < ApplicationRecord
   has_many :likes
   has_many :comments  # commentsテーブルとのアソシエーション
   has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
   # 削除時に指定したモデル(post_tags)に対してdestroyが実行。
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
 
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   def self.search(search)
     if search

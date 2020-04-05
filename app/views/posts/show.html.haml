@@ -22,8 +22,10 @@
   .postContent
     = simple_format @post.content
   -# 画像
-  - if @post.image.present?
-    = image_tag @post.image.url, class: 'postImage' 
+  - if @post.images.present?
+    - @post.images.each do |image|
+      = image_tag image.src.url, class:"content__top--image"
+      -# = image_tag @post.image.src.url, class: 'postImage' 
   - else
     %p.postImage
   -# コメント
