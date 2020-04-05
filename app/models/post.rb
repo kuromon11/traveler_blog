@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :likes
   has_many :comments  # commentsテーブルとのアソシエーション
+  has_many :images, dependent: :destroy
   # 削除時に指定したモデル(post_tags)に対してdestroyが実行。
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
