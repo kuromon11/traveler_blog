@@ -3,8 +3,7 @@
     - if post.images.present?
       = link_to post_path(post.id) do
         - post.images.each do |image|
-          = image_tag image.src.url, class:"content__top--image"
-          -# = image_tag post.image.url, class: 'content__top--image' 
+          = image_tag image.src.url, class:"content__top--image" 
     - else
       %p.content__top--image
   .content__info

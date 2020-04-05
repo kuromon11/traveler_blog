@@ -2,16 +2,16 @@ class Post < ApplicationRecord
   validates :post_tags, presence: true
   validates :title, presence: true
   validates :content, presence: true
+  validates :images, presence: true
   belongs_to :user
   has_many :likes
-  has_many :comments  # commentsテーブルとのアソシエーション
+  has_many :comments
+  #imagesテーブル
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-  # 削除時に指定したモデル(post_tags)に対してdestroyが実行。
+  # post_tagsテーブル
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
-
-  # mount_uploader :image, ImageUploader
 
   def self.search(search)
     if search
