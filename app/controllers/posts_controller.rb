@@ -21,10 +21,10 @@ class PostsController < ApplicationController
     # tag_list = params[:post][:name].split(",")
     # tag = Tag.find(params[:tag_id])
     # post.tags << tag
-    
     if @post.save
       redirect_to root_path
     else
+      @post = Post.new(post_params)
       render 'new'
     end
   end

@@ -1,11 +1,13 @@
+- if post.errors.present?
+  %ul#error_explanation
+    - post.errors.full_messages.each do |message|
+      %li.message
 = form_with model: @post, class: :postForm, local: true do |form|
   -# タグ追加
   = form.collection_select :tag_ids, Tag.all, :id, :name, {prompt: "選択してください"}, class: :postForm__tagSelect
   = form.text_field :title, placeholder: :"タイトル ※必須 ", class: :postForm__title
   = form.text_area :content, placeholder: :"本文", class: :postForm__content
-  -# = form.fields_for :images do |img|
-  -#   = img.file_field :src, class: :postForm__image
-  .postForm__image#image-box-1
+  .postForm__image
     #image-box
       #previews
         - if @post.persisted?

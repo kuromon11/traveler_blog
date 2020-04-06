@@ -21,7 +21,7 @@ $(function(){
     return html;
   }
   // file_fieldのnameに動的なindexをつける為の配列。1枚の画像が追加されるたびに最後尾に配列の値を追加し1ずつずれる。
-  let fileIndex = [1,2,3,4,5];
+  let fileIndex = [1,2,3,4];
   // 既に使われているindexを除外。1番目,2番目,…と除外
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
@@ -52,7 +52,7 @@ $(function(){
       // 4こ未満の時にフォーム追加
       console.log($('.js-file').length);
      // 削除した時にフォームが消えることで画像が投稿できないようにフォームを追加
-      if ($('.js-file').length < 5){
+      if ($('.js-file').length < 4){
         $('#forms').append(buildFileField(fileIndex[0]));
       }
     }
