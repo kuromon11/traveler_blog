@@ -86,3 +86,5 @@ gem 'jquery-rails'
 #bootstrap導入
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise-bootstrap-views', '~> 1.0'
+#active_hash導入
+gem 'active_hash'
