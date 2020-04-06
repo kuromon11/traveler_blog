@@ -1,7 +1,33 @@
-= form_with model: @post, class: :form, local: true do |form|
+- if post.errors.present?
+  %ul#error_explanation
+    - post.errors.full_messages.each do |message|
+      %li.message
+= form_with model: @post, class: :postForm, local: true do |form|
   -# タグ追加
-  = form.collection_select :tag_ids, Tag.all, :id, :name, {prompt: "選択してください"}, class: :form__tagSelect
-  = form.text_field :title, placeholder: :"タイトル ※必須 ", class: :form__title
-  = form.text_area :content, placeholder: :"本文", class: :form__content
-  = form.file_field :image, class: :form__image
-  = form.submit '送信', class: :form__btn
+  = form.collection_select :tag_ids, Tag.all, :id, :name, {prompt: "選択してください"}, class: :postForm__tagSelect
+  = form.text_field :title, placeholder: :"タイトル ※必須 ", class: :postForm__title
+  = form.text_area :content, placeholder: :"本文", class: :postForm__content
+  .postForm__image
+    #image-box
+      #previews
+        - if @post.persisted?
+          - count = 0
+          - @post.images.each_with_index do |image, i|
+            - count += 1
+            = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+      #forms
+        = form.fields_for :images do |image|
+          .js-file_group{"data-index" => image.index}
+            = image.label :src do
+              %i.fa.fa-image
+              = image.file_field :src, class: 'js-file'
+            %br/
+            %span.js-remove 削除1
+          - if @post.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        - if @post.persisted?
+          .js-file_group{"data-index" => @post.images.count}
+            = file_field_tag :src, name: "post[post_images_attributes][#{@post.images.count}][src]", class: 'js-file'
+            - if count < 4
+              .js-remove 追加
+  = form.submit '送信', class: :postForm__btn

@@ -11,18 +11,20 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.images.new
     # @tag = Tag.find(params[:id])
   end
 
   def create
+
+    @post = Post.new(post_params)
     # tag_list = params[:post][:name].split(",")
     # tag = Tag.find(params[:tag_id])
-    @post = Post.create(post_params)
     # post.tags << tag
-    
     if @post.save
       redirect_to root_path
     else
+      @post = Post.new(post_params)
       render 'new'
     end
   end
@@ -59,8 +61,11 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to post_path(post.id)
+    if post.update(post_params) 
+      redirect_to post_path(post.id)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -71,7 +76,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:tag_ids, :title, :content, :image).merge(user_id: current_user.id)
+    params.require(:post).permit(:tag_ids, :title, :content, images_attributes: [:id, :_destroy, :src]).merge(user_id: current_user.id)
   end
 
   def move_to_index

@@ -27,3 +27,6 @@
 /config/master.key
 
 public/uploads/*
+
+# General
+.DS_Store

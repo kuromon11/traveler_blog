@@ -22,8 +22,9 @@
   .postContent
     = simple_format @post.content
   -# 画像
-  - if @post.image.present?
-    = image_tag @post.image.url, class: 'postImage' 
+  - if @post.images.present?
+    - @post.images.each do |image|
+      = image_tag image.src.url, class: "postImage"
   - else
     %p.postImage
   -# コメント
@@ -31,7 +32,7 @@
     - if current_user
       = form_with(model: [@post, @comment], class: "postComment", local: true) do |form|
         = form.text_area :text, placeholder: "コメントする", size: "100x4"
-        = form.submit "送信", class: "btn btn-outline-secondary postComment__submit"
+        = form.submit "送信", class: "btn btn-primary postComment__submit"
 
     -# 投稿されたコメント一覧
     .container__comments
