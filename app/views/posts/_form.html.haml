@@ -5,27 +5,27 @@
   = form.text_area :content, placeholder: :"本文", class: :postForm__content
   -# = form.fields_for :images do |img|
   -#   = img.file_field :src, class: :postForm__image
-  .postForm__image
+  .postForm__image#image-box-1
     #image-box
       #previews
         - if @post.persisted?
+          - count = 0
           - @post.images.each_with_index do |image, i|
-            = image_tag image.src.url, data: { index: i }, width: "150", height: '100'
-      = form.fields_for :images do |image|
-        .js-file_group{"data-index" => image.index}
-          -# = form.label :image, class: "js-file postForm__image" do
-          -#   = icon('fas', 'image', class: "icon")
-          -#   = image.file_field :src
-          -# %br/
-          = image.file_field :src, class: 'js-file'
-          %br/
-          %span.js-remove 削除x
+            - count += 1
+            = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+      #forms
+        = form.fields_for :images do |image|
+          .js-file_group{"data-index" => image.index}
+            = image.label :src do
+              %i.fa.fa-image
+              = image.file_field :src, class: 'js-file'
+            %br/
+            %span.js-remove 削除1
+          - if @post.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @post.persisted?
-          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-      - if @post.persisted?
-        .js-file_group{"data-index" => @post.images.count}
-          = form.label :image, class: "js-file postForm__image" do
-            = icon('fas', 'image', class: "icon")
-            = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]"
-          .js-remove 削除y
+          .js-file_group{"data-index" => @post.images.count}
+            = file_field_tag :src, name: "post[post_images_attributes][#{@post.images.count}][src]", class: 'js-file'
+            - if count < 4
+              .js-remove 追加
   = form.submit '送信', class: :postForm__btn
