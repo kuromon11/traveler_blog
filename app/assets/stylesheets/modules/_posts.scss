@@ -326,6 +326,24 @@ body{
       width: 30%;
       margin: 15px auto 0;
     }
+    &__image{
+      #image-box{
+        width: 100%;
+        height: 100%;
+        #previews{
+          height: 70%;
+        }
+        #input-form{
+          display: flex;
+          .js-file_group{
+            width: 25%;
+            .postForm__image--select{
+              display: none;
+            }
+          }
+        }
+      }
+    }
   }
   .user{
     padding: 15px 30px;

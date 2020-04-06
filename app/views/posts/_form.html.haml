@@ -13,13 +13,19 @@
             = image_tag image.src.url, data: { index: i }, width: "150", height: '100'
       = form.fields_for :images do |image|
         .js-file_group{"data-index" => image.index}
-          = image.file_field :src, class: "postForm__image js-file"
+          -# = form.label :image, class: "js-file postForm__image" do
+          -#   = icon('fas', 'image', class: "icon")
+          -#   = image.file_field :src
+          -# %br/
+          = image.file_field :src, class: 'js-file'
           %br/
           %span.js-remove 削除x
         - if @post.persisted?
           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
       - if @post.persisted?
         .js-file_group{"data-index" => @post.images.count}
-          = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]", class: 'js-file'
+          = form.label :image, class: "js-file postForm__image" do
+            = icon('fas', 'image', class: "icon")
+            = file_field_tag :src, name: "post[images_attributes][#{@post.images.count}][src]"
           .js-remove 削除y
   = form.submit '送信', class: :postForm__btn
