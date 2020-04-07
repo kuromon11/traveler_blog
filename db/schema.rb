@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 2020_04_07_011551) do
     t.datetime "updated_at", null: false
     t.string "nickname"
     t.string "image"
-    t.text "information"
     t.integer "gender_id", null: false
     t.integer "residence_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
