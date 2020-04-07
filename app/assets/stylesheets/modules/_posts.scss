@@ -54,7 +54,7 @@ body{
       margin-top: 70px;
       width: 100%;
       min-width: 750px;
-      height: calc(100vh - 70px);
+      min-height: calc(100vh - 70px);
       background-image: image-url("background-image1.png");
       background-size: cover;
       background-attachment: fixed;//背景画像の位置を固定。
