@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: traveler_blog_production
-  username: traveler_blog
-  password: <%= ENV['TRAVELER_BLOG_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock #必須の指定
