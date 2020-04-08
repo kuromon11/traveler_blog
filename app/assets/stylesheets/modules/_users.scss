@@ -59,6 +59,19 @@
       text-align: center;
       font-size: 24px;
       font-weight: bold;
+      &__image{
+        margin: 0 auto;
+        background-color: white;
+        background-image: image-url("person.png");
+        background-size: 50%;
+        background-size: cover;
+        // background-attachment: fixed;//背景画像の位置を固定。
+        // background-position: top 100%;//位置調整
+        width: 150px;
+        height: 150px;
+
+        border-radius: 50%;
+      }
       &__rank{
         font-size: 20px;
         padding: 5px 0 5px 20px;
