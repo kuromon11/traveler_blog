@@ -1,7 +1,17 @@
-.contents
-  .postTitle
-    = @user.nickname
-    のマイページ
-  - @posts.each do |post|
-    = render partial: "posts/post", locals: { post: post }
-  = paginate(@posts)
+.userWrapper
+  .mypageContent
+    .userTitle
+      = @user.nickname
+      のマイページ
+    .userTitle__image
+    .userTitle__information
+      %p
+        = @user.nickname
+      %p
+        = User.find(@user.gender_id)
+      %p
+        = Tag.find(@user.residence_id).name
+  .contents
+    - @posts.each do |post|
+      = render partial: "posts/post", locals: { post: post }
+    = paginate(@posts)

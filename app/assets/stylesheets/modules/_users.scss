@@ -36,6 +36,44 @@
   }
 }
 
+
+
+
+.userWrapper{
+  //ヘッダーの分を調整
+  margin-top: 70px;
+  width: 100%;
+  min-width: 150px;
+  display: flex;
+
+  .mypageContent{
+    background-color: skyblue;
+    width: 20%;
+    min-width: 250px;
+    height: 100vh;
+    margin: 0 auto;
+    overflow-y: scroll;
+    .userTitle{
+      background-color: green;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      &__rank{
+        font-size: 20px;
+        padding: 5px 0 5px 20px;
+      }
+      &__content{
+        font-size: 24px;
+        padding: 5px 0 5px 40px;
+      }
+    }
+  }
+}
+
+
+
+
 // &__select{
 //   width: 100%;
 //   margin-bottom: 20px;

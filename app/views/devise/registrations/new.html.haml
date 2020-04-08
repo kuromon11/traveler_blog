@@ -21,7 +21,7 @@
           .devise-contents.form-group
             = f.label :gender_id
             %br/
-            = f.select :gender_id, [ ["男",1], ["女", 2]], prompt: "---選択してください---", class: 'form-control'
+            = f.select :gender_id, [ ["男性"], ["女性"]], prompt: "---選択してください---", class: 'form-control'
           -# 居住地
           .devise-contents.form-group
             = f.label :residence_id
