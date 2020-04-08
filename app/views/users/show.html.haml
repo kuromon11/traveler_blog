@@ -4,7 +4,8 @@
       = @user.nickname
       のマイページ
     .userTitle__image
-      -# = image_tag @user.image
+      - if @user.image?
+        = image_tag @user.image.url, class: "userTitle__image--user" 
     .userTitle__information
       %p
         = @user.nickname
