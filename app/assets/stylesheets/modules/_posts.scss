@@ -51,7 +51,7 @@ body{
   .top-wrapper {
     background-color: #ffffff;
     .view{
-      margin-top: 70px;
+      padding-top: 70px;
       width: 100%;
       min-width: 750px;
       min-height: calc(100vh - 70px);
@@ -133,10 +133,13 @@ body{
         &__left{
           padding-right: 20px;
           &--image{
+            background-color: white;
+            background-image: image-url("person.png");
+            background-size: 50%;
+            background-size: cover;
             height: 50px;
             width: 50px;
             border: solid 1px;
-            background-color: skyblue;
           }
         }
         &__right{
