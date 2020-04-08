@@ -11,6 +11,7 @@
       = link_to current_user.nickname, user_path(current_user), class: "btn-outline-success header__right--btn"
       = link_to new_post_path, class: "btn-outline-success header__right--btn" do
         %span.fas.fa-plus-circle.fa-2x
+      -# = link_to "編集", edit_user_registration_path, class: "btn-outline-success header__right--btn"
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-outline-success header__right--btn"
     - else
       = link_to "ログイン", new_user_session_path, class: "btn-outline-success header__right--btn"
