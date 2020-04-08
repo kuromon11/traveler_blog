@@ -1,7 +1,19 @@
-.contents
-  .postTitle
-    = @user.nickname
-    のマイページ
-  - @posts.each do |post|
-    = render partial: "posts/post", locals: { post: post }
-  = paginate(@posts)
+.userWrapper
+  .mypageContent
+    .userTitle
+      = @user.nickname
+      のマイページ
+    .userTitle__image
+      - if @user.image?
+        = image_tag @user.image.url, class: "userTitle__image--user" 
+    .userTitle__information
+      %p
+        = @user.nickname
+      %p
+        = Gender.find(@user.gender_id).name
+      %p
+        = Prefecture.find(@user.residence_id).name
+  .contents
+    - @posts.each do |post|
+      = render partial: "posts/post", locals: { post: post }
+    = paginate(@posts)

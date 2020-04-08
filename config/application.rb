@@ -22,5 +22,7 @@ module TravelerBlog
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     
+    #field_with_errorを自動挿入しない
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end

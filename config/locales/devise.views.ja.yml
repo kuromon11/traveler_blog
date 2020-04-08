@@ -3,6 +3,9 @@ ja:
     attributes:
       user:
         nickname: "ニックネーム"
+        image: "アイコン(任意)"
+        gender_id: "性別"
+        residence_id: "居住地"
         current_password: "現在のパスワード"
         email: "メールアドレス"
         password: "パスワード"

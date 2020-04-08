@@ -5,23 +5,39 @@
       %h1= t('.sign_up')
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = bootstrap_devise_error_messages!
-        -# ニックネーム追加
         .devise-contents
-          .devise-contents__form-group
-            = f.label :nickname
+          -# ニックネーム追加
+          .devise-contents.form-group
+            = f.label :nickname 
             %br/
             = f.text_field :nickname, autofocus: true, class: 'form-control'
-          .devise-contents__form-group
+          -# 画像
+          .devise-contents.form-group
+            = f.label :image 
+            %br/
+            -# .icon-image
+            = f.file_field :image, class: "form-control-file"
+          -# 性別
+          .devise-contents.form-group
+            = f.label :gender_id
+            %br/
+            = f.select :gender_id, [ ["男性"], ["女性"]], prompt: "---選択してください---", class: 'form-control'
+          -# 居住地
+          .devise-contents.form-group
+            = f.label :residence_id
+            %br/
+            = f.collection_select :residence_id, Tag.all, :id, :name, prompt: "---選択してください---", class: 'form-control'
+          .devise-contents.form-group
             = f.label :email
             = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
-          .devise-contents__form-group
+          .devise-contents.form-group
             = f.label :password
             = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
             - if @minimum_password_length
-              %small.form-text.text-muted= t('devise.shared.minimum_password_length', count: @minimum_password_length)
-          .devise-contents__form-group
+              %small.form-text= t('devise.shared.minimum_password_length', count: @minimum_password_length)
+          .devise-contents.form-group
             = f.label :password_confirmation
             = f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control'
-          .devise-contents__form-group
+          .devise-contents.form-group
             = f.submit t('.sign_up'), class: 'btn btn-primary btn-block'
-          = render 'devise/shared/links'
+            = render 'devise/shared/links'

@@ -4,6 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :image, ImageUploader
+  
+  validates :gender_id, presence: true
+  validates :residence_id, presence: true
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :gender
+  belongs_to_active_hash :prefecture
+
   has_many :likes
   has_many :posts
   has_many :comments  # commentsテーブルとのアソシエーション
