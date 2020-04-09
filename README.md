@@ -2,11 +2,11 @@
 
 ## 概要
 ### 🌐  App URL
-### **https://google.com**  
+### **http://18.179.212.151/**  
 日本を体感してもらうサイトです。<br>
 日本国内に特化した旅行系ブログアプリ<br>
 ## 使用言語<br>
-Haml,SCSS,Bootstrap,Ruby,RubyonRails,Javascript,jQuery,AWS,
+Haml,SCSS,Bootstrap,Ruby,RubyonRails,Javascript,jQuery,AWS(EC2,S3)
 
 ## 目的
 * 日本人として日本のことを知っておきたい<br>
@@ -24,6 +24,7 @@ Haml,SCSS,Bootstrap,Ruby,RubyonRails,Javascript,jQuery,AWS,
 * 都道府県検索/用語検索/いいねランキング<br>
 
 ## 構築方法
+AWS,MySQL,nginx,Unicorn,Capistrano
 
 ## 使い方
 上記のアドレスにアクセスした際のトップページ画面です。<br>
