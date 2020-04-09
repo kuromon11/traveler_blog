@@ -4,7 +4,7 @@
       %li.message
 = form_with model: @post, class: :postForm, local: true do |form|
   -# タグ追加
-  = form.collection_select :tag_ids, Tag.all, :id, :name, {prompt: "選択してください"}, class: :postForm__tagSelect
+  = form.collection_select :tag_ids, Prefecture.all, :id, :name, {prompt: "選択してください"}, class: :postForm__tagSelect
   = form.text_field :title, placeholder: :"タイトル ※必須 ", class: :postForm__title
   = form.text_area :content, placeholder: :"本文", class: :postForm__content
   .postForm__image
