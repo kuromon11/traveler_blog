@@ -22,7 +22,7 @@
               %i.fa.fa-image
               = image.file_field :src, class: 'js-file'
             %br/
-            %span.js-remove 削除1
+            %span.js-remove 削除
           - if @post.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @post.persisted?

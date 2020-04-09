@@ -8,7 +8,7 @@ $(function(){
                   name="post[images_attributes][${num}][src]"
                   id="post_images_attributes_${num}_src">
                   </label><br>
-                  <div class="js-remove">削除3</div>
+                  <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
