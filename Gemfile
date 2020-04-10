@@ -101,3 +101,5 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'active_hash'
 #S3導入
 gem 'fog-aws'
+#API
+gem 'dotenv-rails'
