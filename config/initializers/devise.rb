@@ -260,7 +260,12 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-
+  #Twitterログイン機能導入 popup:確認画面, 
+  if Rails.env.production? #本番環境
+    config.omniauth :twitter, Rails.application.credentials.twitter[:twitter_api_key], Rails.application.credentials.twitter[:twitter_api_secret], display: 'popup', callback_url: "http://japan-traveler-blog.com/users/auth/twitter/callback"
+  else
+    config.omniauth :twitter, Rails.application.credentials.twitter[:twitter_api_key], Rails.application.credentials.twitter[:twitter_api_secret], display: 'popup', callback_url: "http://localhost:3000/users/auth/twitter/callback"
+  end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
