@@ -9,10 +9,13 @@
     .userTitle__information
       %p
         = @user.nickname
-      %p
-        = Gender.find(@user.gender_id).name
-      %p
-        = Prefecture.find(@user.residence_id).name
+      - if @user.gender_id?
+        %p
+          = Gender.find(@user.gender_id).name
+      - if @user.residence_id?
+        %p
+          = Prefecture.find(@user.residence_id).name
+      
   .contents
     - @posts.each do |post|
       = render partial: "posts/post", locals: { post: post }

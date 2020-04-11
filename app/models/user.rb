@@ -16,9 +16,7 @@ class User < ApplicationRecord
         nickname: auth.info.name,
         remote_image_url: auth.info.image.gsub("_normal","") ,
         email:    User.dummy_email(auth),
-        password: Devise.friendly_token[0, 20],
-        gender_id: 1,
-        residence_id: 1
+        password: Devise.friendly_token[0, 20]
       )
     end
     user
@@ -29,21 +27,9 @@ class User < ApplicationRecord
   def self.dummy_email(auth)
     "#{auth.uid}@example.com"
   end
-  # #userに必要な情報
-  # def self.from_omniauth(auth)
-  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-  #     user.provider = auth.provider
-  #     user.uid = auth.uid
-  #     user.nickname = auth.name
-  #     user.email = auth.info.email
-  #     user.password = Devise.friendly_token[0, 20] # ランダムなパスワードを作成
-  #     user.image = auth.info.image.gsub("_normal","") if user.provider == "twitter"
-  #     # user.image = auth.info.image.gsub("picture","picture?type=large") if user.provider == "facebook"
-  #   end
-  # end
   
-  validates :gender_id, presence: true
-  validates :residence_id, presence: true
+  # validates :gender_id, presence: true
+  # validates :residence_id, presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :gender
