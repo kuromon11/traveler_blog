@@ -102,4 +102,5 @@ gem 'active_hash'
 #S3導入
 gem 'fog-aws'
 #API
+gem 'omniauth'
 gem 'omniauth-twitter'
