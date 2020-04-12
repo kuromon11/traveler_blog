@@ -14,6 +14,9 @@
   .content__info
     .content__info__left
       .content__info__left--image
+        = link_to user_path(post.user_id) do
+          - if post.user.image?
+            = image_tag post.user.image.url, class: "content__info__left--image"
     .content__info__right
       .content__info__right__top
         = link_to post.title, post_path(post.id), class: "content__info__right__top--title"
