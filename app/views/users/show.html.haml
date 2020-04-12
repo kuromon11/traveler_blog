@@ -2,20 +2,20 @@
   .mypageContent
     .userTitle
       = @user.nickname
-      のマイページ
+      - if @user == current_user
+        = link_to "編集", edit_user_registration_path, class: "btn btn-link userTitle--edit"
     .userTitle__image
       - if @user.image?
         = image_tag @user.image.url, class: "userTitle__image--user" 
     .userTitle__information
-      %p
-        = @user.nickname
       - if @user.gender_id?
         %p
           = Gender.find(@user.gender_id).name
       - if @user.residence_id?
         %p
           = Prefecture.find(@user.residence_id).name
-      = link_to "編集する", edit_user_registration_path, class: "btn btn-primary btn-sm"
+      - if @user == current_user
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-light userTitle__information__logout"
   .contents
     - @posts.each do |post|
       = render partial: "posts/post", locals: { post: post }

@@ -2,13 +2,21 @@
   .content__top
     - if post.images.present?
       = link_to post_path(post.id) do
-        - post.images.each do |image|
-          = image_tag image.src.url, class:"content__top--image" 
+        .content__top__image-contents
+          - if post.images.count == 1
+            - post.images.each do |image|
+              = image_tag image.src.url, class:"content__top__image-contents--image"
+          - else
+            - post.images.each do |image|
+              = image_tag image.src.url, class:"content__top__image-contents--image4"
     - else
       %p.content__top--image
   .content__info
     .content__info__left
       .content__info__left--image
+        = link_to user_path(post.user_id) do
+          - if post.user.image?
+            = image_tag post.user.image.url, class: "content__info__left--image"
     .content__info__right
       .content__info__right__top
         = link_to post.title, post_path(post.id), class: "content__info__right__top--title"
