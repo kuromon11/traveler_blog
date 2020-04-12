@@ -133,17 +133,13 @@ body{
           display: flex;
           //画像を折り返す
           flex-wrap: wrap;
+          align-content: center;
+          justify-content: center;
           background-color: $LightColor;
-          //背景に画像挿入
-          background-image: url(japan.png);
-          background-size: 64%;
-          background-position: center;
-          background-repeat: no-repeat; //繰り返さない指定
           // 画像が1枚の時
           &--image{
-            width: 50%;
-            height: 50%;
-            // object-fit: cover;
+            width: 100%;
+            height: 100%;
             background-color: $LightColor;
             border: solid 1px;
             border-color: black;
@@ -151,7 +147,6 @@ body{
           &--image4{
             width: 50%;
             height: 50%;
-            // object-fit: cover;
             background-color: $LightColor;
             border: solid 1px;
             border-color: black;
