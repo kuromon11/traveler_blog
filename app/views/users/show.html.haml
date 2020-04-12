@@ -2,20 +2,17 @@
   .mypageContent
     .userTitle
       = @user.nickname
-      のマイページ
+      = link_to "編集", edit_user_registration_path, class: "btn btn-link"
     .userTitle__image
       - if @user.image?
         = image_tag @user.image.url, class: "userTitle__image--user" 
     .userTitle__information
-      %p
-        = @user.nickname
       - if @user.gender_id?
         %p
           = Gender.find(@user.gender_id).name
       - if @user.residence_id?
         %p
           = Prefecture.find(@user.residence_id).name
-      = link_to "編集する", edit_user_registration_path, class: "btn btn-primary btn-sm"
   .contents
     - @posts.each do |post|
       = render partial: "posts/post", locals: { post: post }
