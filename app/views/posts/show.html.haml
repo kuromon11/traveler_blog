@@ -13,8 +13,8 @@
   .postAuthor
   - if user_signed_in? && current_user.id == @post.user_id
     .postManage
-      = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
-      = link_to "削除", post_path(@post.id), method: :delete, data: { confirm: ('本当によろしいですか？') }, class: "postManage__delete"
+      = link_to "編集", edit_post_path(@post.id), class: "btn btn-primary postManage__edit"
+      = link_to "削除", post_path(@post.id), method: :delete, data: { confirm: ('本当によろしいですか？') }, class: "btn btn-danger postManage__delete"
   -# いいね
   #likes
     = render partial: "likes/like", locals: { post: @post }
@@ -22,11 +22,17 @@
   .postContent
     = simple_format @post.content
   -# 画像
-  - if @post.images.present?
-    - @post.images.each do |image|
-      = image_tag image.src.url, class: "postImage"
-  - else
-    %p.postImage
+  .postImage
+    - if @post.images.present?
+      .postImage__image-contents
+        - if @post.images.count == 1
+          - @post.images.each do |image|
+            = image_tag image.src.url, class:"postImage__image-contents--image"
+        - else
+          - @post.images.each do |image|
+            = image_tag image.src.url, class:"postImage__image-contents--image4"
+    - else
+      %p.postImage--image
   -# コメント
   .container
     - if current_user
