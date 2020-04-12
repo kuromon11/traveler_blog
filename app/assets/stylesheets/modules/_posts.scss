@@ -352,7 +352,7 @@ body{
         background-color: $LightColor;
       }
     }
-    //都道府県検索
+    //都道府県検索=============================
     &__prefecture__Form{
       margin: 10px 0;
       display: flex;
@@ -372,10 +372,14 @@ body{
   }
   //新規投稿、編集========================================
   .postForm{
-    width: 85%;
-    height: 100%;
+    width: 80%;
     margin: 0 auto;
-    padding-top: 30px;
+    padding: 20px 0;
+    //背景に画像挿入
+    background-image: url(japan.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; //繰り返さない指定
     &__title{
       display: block;
       width: 100%;
@@ -384,24 +388,25 @@ body{
     &__content{
       display: block;
       width: 100%;
-      height: 50%;
+      height: 30vh;
       margin-top: 15px;
     }
     &__btn{
       display: block;
-      width: 30%;
-      margin: 15px auto 0;
+      width: 50%;
+      margin: 10px auto 0;
     }
     &__image{
       width: 100%;
       height: 200px;
       #image-box{
+        margin-top: 10px;
         width: 100%;
         height: 100%;
         #previews{
           height: 50%;
           img{
-            width: 24%;
+            width: 25%;
             height: 100%;
           }
         }

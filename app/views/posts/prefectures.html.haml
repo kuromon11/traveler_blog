@@ -1,12 +1,7 @@
 .contents
-  .contents__prefecture
-    = form_tag prefectures_posts_path, method: :get, class: 'contents__prefecture__Form' do
-      = select_tag :tag_id,                                                       |
-        options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]), |
-        {                                                                         |
-          prompt: 'タグで絞り込み検索',                                                    |
-          onchange: 'submit(this.form);'                                          |
-        }                                                                         |
+  .contents__prefecture.form-group
+    = form_with url: prefectures_posts_path, method: :get, class: 'contents__prefecture__Form' do |form|
+      = form.collection_select :tag_id, Prefecture.all, :id, :name, {prompt: "検索したい都道府県を選択してください"}, onchange: 'submit(this.form);'
     - if params[:tag_id].present?
       .tag-index
         = @tag.name
