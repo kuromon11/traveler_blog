@@ -1,16 +1,22 @@
 %header.header
-  .header__title
-    = link_to root_path, class: "header__title--text" do
-      = image_tag("logo.png")
-  = form_with(url: search_posts_path, local: true, method: :get, class: "header__right") do |form|
+  .header__left
+    .header__left__title
+      = link_to root_path, class: "header__left__title--text" do
+        = image_tag("logo.png")
+    .header__left__content
+      - if user_signed_in?
+        = form_with(url: search_posts_path, local: true, method: :get, class: "header__left__content__search") do |form|
+          = form.text_field :keyword, placeholder: "キーワード"
+          = form.submit "検索", class: "btn btn-primary"
+        = link_to "都道府県", prefectures_posts_path, class: "header__left__content__form"
+        = link_to "ランキング", ranking_posts_path(@posts), class: "header__left__content__form"
+        = link_to "マイページ", user_path(current_user), class: "header__left__content__form"
+      - else
+        = form_with(url: search_posts_path, local: true, method: :get, class: "header__left__content__search") do |form|
+          = form.text_field :keyword, placeholder: "キーワード"
+          = form.submit "検索", class: "btn btn-primary"
+        = link_to "ログイン", new_user_session_path, class: "header__left__content__form"
+  .header__right
     - if user_signed_in? 
-      = form.text_field :keyword, placeholder: "キーワード", class: "search-input"
-      = form.submit "検索", class: "btn btn-primary search-btn"
-      = link_to "都道府県", prefectures_posts_path, class: "btn-outline-success header__right--btn"
-      = link_to "ランキング", ranking_posts_path(@posts), class: "btn-outline-success header__right--btn"
-      = link_to current_user.nickname, user_path(current_user), class: "btn-outline-success header__right--btn"
-      = link_to  "記録" , new_post_path, class: "header__right--btn" 
-      -# %span.fas.fa-plus.fa-3x
-    - else
-      = link_to "ログイン", new_user_session_path, class: "btn-outline-success header__right--btn"
-      = link_to "新規登録", new_user_registration_path, class: "btn-outline-success header__right--btn"
+      = link_to  new_post_path, class: "header__right--btn" do
+        %span.fas.fa-plus.fa-4x

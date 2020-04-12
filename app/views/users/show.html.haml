@@ -2,7 +2,7 @@
   .mypageContent
     .userTitle
       = @user.nickname
-      = link_to "編集", edit_user_registration_path, class: "btn btn-link"
+      = link_to "編集", edit_user_registration_path, class: "btn btn-link userTitle--edit"
     .userTitle__image
       - if @user.image?
         = image_tag @user.image.url, class: "userTitle__image--user" 
@@ -13,7 +13,7 @@
       - if @user.residence_id?
         %p
           = Prefecture.find(@user.residence_id).name
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: ('本当によろしいですか？') }, class: "btn-success userTitle__information__logout"
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: ('本当によろしいですか？') }, class: "btn btn-light userTitle__information__logout"
   .contents
     - @posts.each do |post|
       = render partial: "posts/post", locals: { post: post }

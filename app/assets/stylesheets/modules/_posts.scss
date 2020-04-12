@@ -15,34 +15,45 @@ body{
     z-index: 1;
     height: 70px;
     width: 100%;
-    padding: 0 40px;
+    min-width: 750px;
+    padding: 0 20px;
     background-color: $DarkColor;
     color: #fff;
     display: flex;
-    justify-content: space-between;   
-    &__title{
-      &--text img{
-        display: block;
-        height: 70px;
-        width: 140px;
+    align-items: center;
+    justify-content: space-between;
+    &__left{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // タイトルロゴ
+      &__title{
+        &--text {
+          display: block;
+          height: 70px;
+          width: 140px;
+        }
+        :hover{
+          opacity: 0.5;
+        }
       }
-      :hover{
-        opacity: 0.5;
-      }
-    }
-    &__right{
-      &--btn{
+      // 選択フォーム
+      &__content{
         display: inline;
-        text-decoration: none;
-        line-height: 70px;
+        display: flex;
+        justify-content: flex-start;
         text-align: center;
         color: #fff;
-        margin-left:12px;
-      }
-      :hover{
-        opacity: 0.5;
+        margin-left:16px;
+        &__form{
+          margin-left: 8px;
+          :hover{
+            opacity: 0.5;
+          }
+        }
       }
     }
+
   }
   // ファーストビュー====================================
   .top-wrapper {
@@ -87,11 +98,11 @@ body{
 
   //投稿一覧============================================
   .contents{
-    border: 1px solid;
-    border-color: white;
     margin: 0 auto;
     //ヘッダーの分を調整
     margin-top: 70px;
+    border: 1px solid;
+    border-color: white;
     width: 80%;
     min-width: 600px;
     overflow-y: scroll;

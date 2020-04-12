@@ -4,11 +4,11 @@
     .view__devise
       %h1= t('.forgot_your_password')
       = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = bootstrap_devise_error_messages!
         .devise-contents
-          = bootstrap_devise_error_messages!
-          .devise-contents__form-group
+          .devise-contents.form-group
             = f.label :email
             = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
-          .devise-contents__form-group
+          .devise-contents.form-group
             = f.submit t('.send_me_reset_password_instructions'), class: 'btn btn-primary btn-block'
-          = render 'devise/shared/links'
+            = render 'devise/shared/links'

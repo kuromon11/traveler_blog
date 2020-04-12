@@ -1,7 +1,7 @@
 .contents
   = form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form|
     = form.text_field :keyword, placeholder: "見たい記事は見つかりましたか？", class: "search-input"
-    = form.submit "検索", class: "btn btn-outline-secondary search-btn"
+    = form.submit "再検索", class: "btn btn-primary search-btn"
   - @posts.each do |post|
     = render partial: "post", locals: { post: post }
   = paginate(@posts)
