@@ -9,10 +9,8 @@
       = link_to "都道府県", prefectures_posts_path, class: "btn-outline-success header__right--btn"
       = link_to "ランキング", ranking_posts_path(@posts), class: "btn-outline-success header__right--btn"
       = link_to current_user.nickname, user_path(current_user), class: "btn-outline-success header__right--btn"
-      = link_to new_post_path, class: "btn-outline-success header__right--btn" do
-        %span.fas.fa-plus-circle.fa-2x
-      -# = link_to "編集", edit_user_registration_path, class: "btn-outline-success header__right--btn"
-      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-outline-success header__right--btn"
+      = link_to  "記録" , new_post_path, class: "header__right--btn" 
+      -# %span.fas.fa-plus.fa-3x
     - else
       = link_to "ログイン", new_user_session_path, class: "btn-outline-success header__right--btn"
       = link_to "新規登録", new_user_registration_path, class: "btn-outline-success header__right--btn"

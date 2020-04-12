@@ -32,15 +32,12 @@ body{
     }
     &__right{
       &--btn{
-        display: inline-block;
+        display: inline;
         text-decoration: none;
         line-height: 70px;
+        text-align: center;
         color: #fff;
-        margin-left:16px;
-        &--icon{
-          width: 50px;
-          height: 50px;
-        }
+        margin-left:12px;
       }
       :hover{
         opacity: 0.5;
