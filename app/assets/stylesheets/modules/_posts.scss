@@ -1,8 +1,8 @@
 body{
   //body要素で他のビューファイルに行っても変わらない
-  background: -moz-linear-gradient(top, $LightBlueColor, $DarkBlueColor);
-  background: -webkit-linear-gradient(top, $LightBlueColor, $DarkBlueColor);
-  background: linear-gradient(to bottom, $LightBlueColor, $DarkBlueColor);
+  background: -moz-linear-gradient(top, $LightColor, $DarkColor);
+  background: -webkit-linear-gradient(top, $LightColor, $DarkColor);
+  background: linear-gradient(to bottom, $LightColor, $DarkColor);
   min-width: 750px;
   min-height: calc(100vh - 70px);
   font-family: $mainFont;
@@ -16,7 +16,7 @@ body{
     height: 70px;
     width: 100%;
     padding: 0 40px;
-    background-color: $DarkBlueColor;
+    background-color: $DarkColor;
     color: #fff;
     display: flex;
     justify-content: space-between;   
@@ -98,11 +98,7 @@ body{
     width: 80%;
     min-width: 600px;
     overflow-y: scroll;
-    //背景に画像挿入
-    background-image: url(japan.png);
-    background-size: 65%;
-    background-position: bottom;
-    background-repeat: no-repeat; //繰り返さない指定
+    background-color: $DarkColor;
 
     //1つあたりのcontent=================================
     .content{
@@ -114,14 +110,52 @@ body{
       margin-bottom: 20px;
       &__top{
         width: 600px;
-        height: 85%;
+        height: 400px;
         margin: 0 auto;
+        display: block;
+        //画像がない時
         &--image{
           width: 100%;
           height: 100%;
-          background-color: #6088C6;
+          background-color: $LightColor;
           border: solid 1px;
           border-color: black;
+          //背景に画像挿入
+          background-image: url(japan.png);
+          background-size: 64%;
+          background-position: center;
+          background-repeat: no-repeat; //繰り返さない指定
+        }
+        // 画像がある時
+        &__image-contents{
+          width: 100%;
+          height: 100%;
+          display: flex;
+          //画像を折り返す
+          flex-wrap: wrap;
+          background-color: $LightColor;
+          //背景に画像挿入
+          background-image: url(japan.png);
+          background-size: 64%;
+          background-position: center;
+          background-repeat: no-repeat; //繰り返さない指定
+          // 画像が1枚の時
+          &--image{
+            width: 50%;
+            height: 50%;
+            // object-fit: cover;
+            background-color: $LightColor;
+            border: solid 1px;
+            border-color: black;
+          }
+          &--image4{
+            width: 50%;
+            height: 50%;
+            // object-fit: cover;
+            background-color: $LightColor;
+            border: solid 1px;
+            border-color: black;
+          }
         }
       }
       &__info{
