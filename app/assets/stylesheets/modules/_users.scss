@@ -36,6 +36,14 @@
   }
 }
 
+.user-login-btn{
+  display: block;
+  &__twitter{
+    background-color: #55acee;
+    border-color: #2795e9;
+    color: #fff;
+  }
+}
 //マイページ===============================
 .userWrapper{
   //ヘッダーの分を調整
