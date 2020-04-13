@@ -384,7 +384,7 @@ body{
     padding: 20px 0;
     //背景に画像挿入
     background-image: url(japan.png);
-    background-size: cover;
+    background-size: 80%;
     background-position: center;
     background-repeat: no-repeat; //繰り返さない指定
     &__title{
@@ -405,7 +405,7 @@ body{
     }
     &__image{
       width: 100%;
-      height: 200px;
+      height: 240px;
       #image-box{
         margin-top: 10px;
         width: 100%;
@@ -413,7 +413,7 @@ body{
         #previews{
           height: 50%;
           img{
-            width: 25%;
+            width: 24.5%;
             height: 100%;
           }
         }
@@ -455,8 +455,9 @@ body{
   .search-form {
     text-align: center;
     padding-top: 8px;
+    margin: 20px 0;
     .search-input {
-      width: 60vw;
+      width: 60%;
       margin-right: 10px;
     }
     .search-btn {
