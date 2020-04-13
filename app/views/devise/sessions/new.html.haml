@@ -6,17 +6,17 @@
       .view__devise__test (お試し) Eメール：test@test｜パスワード：testtest
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .devise-contents
-          .devise-contents__form-group
+          .devise-contents.form-group
             = f.label :email
             = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
-          .devise-contents__form-group
+          .devise-contents.form-group
             = f.label :password
             = f.password_field :password, autocomplete: 'current-password', class: 'form-control'
           - if devise_mapping.rememberable?
-            .devise-contents__form-group.form-check
+            .devise-contents.form-group.form-check
               = f.check_box :remember_me, class: 'form-check-input'
               = f.label :remember_me, class: 'form-check-label' do
                 = resource.class.human_attribute_name('remember_me')
-          .devise-contents__form-group
+          .devise-contents.form-group
             = f.submit  t('.sign_in'), class: 'btn btn-primary btn-block' 
-          = render 'devise/shared/links'
+            = render 'devise/shared/links'
