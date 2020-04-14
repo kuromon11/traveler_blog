@@ -14,7 +14,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
   def callback_from(provider)
     provider = provider.to_s
-    # APIから受け取ったレスポンスがrequest.env["omniauth.auth"]に入っている
+    # APIから受け取ったレスポンスがrequest.env["omniauth.auth"]に入っている。モデルで処理を行う。
     @user = User.find_for_oauth(request.env['omniauth.auth'])
 
     if @user.persisted? #ユーザー情報が登録済みなので、新規登録ではなくログイン処理を行う

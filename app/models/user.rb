@@ -15,7 +15,7 @@ class User < ApplicationRecord
         provider: auth.provider,
         nickname: auth.info.name,
         remote_image_url: auth.info.image.gsub("_normal","") ,
-        email:    User.dummy_email(auth),
+        email:    auth.info.email,
         password: Devise.friendly_token[0, 20]
       )
     end
@@ -23,10 +23,6 @@ class User < ApplicationRecord
   end
 
   private
-
-  def self.dummy_email(auth)
-    "#{auth.uid}@example.com"
-  end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :gender

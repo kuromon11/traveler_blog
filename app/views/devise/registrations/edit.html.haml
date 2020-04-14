@@ -26,10 +26,10 @@
             = f.label :residence_id
             %br/
             = f.collection_select :residence_id, Prefecture.all, :id, :name, prompt: "---選択してください---", class: 'form-control'
-          - unless @user.provider?
-            .devise-contents.form-group
-              = f.label :email
-              = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+          .devise-contents.form-group
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
             -# .form-group
             -#   = f.label :password
             -#   = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
