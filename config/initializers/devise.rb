@@ -262,11 +262,11 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   #Twitter,googleログイン機能導入 popup:確認画面, 
   if Rails.env.production? #本番環境
-    config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:google_client_id], Rails.application.credentials.google_oauth2[:google_client_secret], display: 'popup', callback_url: "http://japan-traveler-blog.com/users/auth/google/callback"
     config.omniauth :twitter, Rails.application.credentials.twitter[:twitter_api_key], Rails.application.credentials.twitter[:twitter_api_secret], display: 'popup', callback_url: "http://japan-traveler-blog.com/users/auth/twitter/callback"
+    config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:google_client_id], Rails.application.credentials.google_oauth2[:google_client_secret], display: 'popup', callback_url: "http://japan-traveler-blog.com/users/auth/google/callback"
   else #ローカル環境、テスト
-    config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:google_client_id], Rails.application.credentials.google_oauth2[:google_client_secret], display: 'popup', callback_url: "http://localhost:3000/users/auth/google/callback"
     config.omniauth :twitter, Rails.application.credentials.twitter[:twitter_api_key], Rails.application.credentials.twitter[:twitter_api_secret], display: 'popup', callback_url: "http://localhost:3000/users/auth/twitter/callback"
+    config.omniauth :google_oauth2, Rails.application.credentials.google_oauth2[:google_client_id], Rails.application.credentials.google_oauth2[:google_client_secret], display: 'popup', callback_url: "http://localhost:3000/users/auth/google_oauth2/callback"
   end
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
