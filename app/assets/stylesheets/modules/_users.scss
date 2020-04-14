@@ -28,22 +28,25 @@
           height: 38px;
           background-color: #ffffff;
         }
-        .btn{
-          margin-top: 20px;
+        .user-login-btn{
+          &__twitter{
+            margin-top: 20px;
+            background-color: #55acee;
+            border-color: #2795e9;
+            color: #fff;
+          }
+          &__google{
+            background-color: #c6594b;
+            border-color: #a94335;
+            color: #fff;
+          }
         }
       }
     }
   }
 }
 
-.user-login-btn{
-  &__twitter{
-    margin: 10px 0;
-    background-color: #55acee;
-    border-color: #2795e9;
-    color: #fff;
-  }
-}
+
 //マイページ===============================
 .userWrapper{
   //ヘッダーの分を調整
