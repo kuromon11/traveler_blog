@@ -50,6 +50,9 @@ body{
         text-decoration: none;
         color: white;
       }
+      :hover{
+        color: black;
+      }
 
     }
 
@@ -180,7 +183,7 @@ body{
         &__right{
           width: calc(100%-70px);
           &__top{
-            font-size: 24px;
+            font-size: 21px;
             font-weight: bold;
             line-height: 24px;
             &--title{
@@ -232,7 +235,7 @@ body{
     .postTitle{
       padding: 20px 0;
       text-align: center;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       // &__prefecture{
       //   font-size: 16px;

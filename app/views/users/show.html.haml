@@ -2,6 +2,7 @@
   .mypageContent
     .userTitle
       = @user.nickname
+      %br
       - if @user == current_user
         = link_to "編集", edit_user_registration_path, class: "btn btn-link userTitle--edit"
     .userTitle__image
@@ -19,4 +20,5 @@
   .contents
     - @posts.each do |post|
       = render partial: "posts/post", locals: { post: post }
-    = paginate(@posts)
+    - if user_signed_in?
+      = paginate(@posts)
