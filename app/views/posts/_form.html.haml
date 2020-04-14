@@ -1,12 +1,12 @@
-- if post.errors.present?
+- if @post.errors.present?
   %ul#error_explanation
     - post.errors.full_messages.each do |message|
       %li.message
 = form_with model: @post, class: "postForm", local: true do |form|
   -# タグ追加
-  = form.collection_select :tag_ids, Prefecture.all, :id, :name, {prompt: "どこに行きましたか"}, class: :postForm__tagSelect
-  = form.text_field :title, placeholder: :"タイトル ※必須 ", class: :postForm__title
-  = form.text_area :content, placeholder: :"本文", class: :postForm__content
+  = form.collection_select :tag_ids, Prefecture.all, :id, :name, {prompt: "どこに行きましたか ※必須"}, class: :postForm__tagSelect
+  = form.text_field :title, placeholder: "タイトル ※必須 25文字以内 ", class: :postForm__title
+  = form.text_area :content, placeholder: "本文 ※必須", class: :postForm__content
   .postForm__image
     #image-box
       #previews
