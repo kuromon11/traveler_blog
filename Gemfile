@@ -104,3 +104,6 @@ gem 'fog-aws'
 #API
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+#OmniAuthの脆弱性に対応
+gem "omniauth-rails_csrf_protection"
