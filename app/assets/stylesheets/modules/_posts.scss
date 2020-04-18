@@ -407,11 +407,21 @@ body{
       width: 50%;
       margin: 10px auto 0;
     }
+    &__tagTitle{
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    &__tags{
+      width: 100%;
+      margin-top: 10px;
+      border: 1px solid;
+      border-color: #fff;
+    }
     &__imageTitle{
       margin-top: 10px;
       font-size: 16px;
     }
-    &__image{
+    &__images{
       width: 100%;
       margin-top: 10px;
       border: 1px solid;
