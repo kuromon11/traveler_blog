@@ -2,7 +2,7 @@
   .postTitle
     = @post.title
     @
-    = @post.tags&.first&.name 
+    = Prefecture.find(@post.prefecture_id).name
   .postDate
     .postDate__created
       投稿時間:

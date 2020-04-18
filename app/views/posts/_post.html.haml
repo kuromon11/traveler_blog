@@ -27,7 +27,7 @@
           = post.created_at.strftime("%Y-%m-%d %H:%M")
         .content__info__right__bottom--tag  
           @
-          = post.tags&.first&.name 
+          = Prefecture.find(post.prefecture_id).name    #  = post.tags&.first&.name 
         %span.far.fa-thumbs-up.fa-2x.like-btn
           = post.likes_count   
 

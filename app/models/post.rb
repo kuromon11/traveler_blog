@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :post_tags, presence: true
+  validates :prefecture_id, presence: true
   validates :title, presence: true, length: { maximum: 25 }
   validates :content, presence: true
   validates :images, presence: true, length: { minimum: 1, maximum: 4 }
@@ -13,6 +13,7 @@ class Post < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
 
+  # self.でクラスメソッド
   def self.search(search)
     if search
       # 本文とタイトルから検索
