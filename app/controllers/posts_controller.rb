@@ -46,8 +46,6 @@ class PostsController < ApplicationController
   def prefectures
     if params[:prefecture_id].present?
       @posts = Post.where('prefecture_id LIKE ?', "%#{params[:prefecture_id]}%").includes(:user).order("created_at DESC").page(params[:page]).per(5)
-      # @results = Prefecture.find(params[:prefecture_id]).name
-      # @posts = Post.(prefecture_id: params[:prefecture_id]).includes(:user).order("created_at DESC").page(params[:page]).per(5)
     end
     # 条件演算子：trueなら都道府県検索
     # @tag = Tag.find(params[:tag_id]) if params[:tag_id].present?

@@ -8,6 +8,7 @@
   = form.text_field :title, placeholder: "タイトル ※必須 25文字以内 ", class: :postForm__title
   = form.text_area :content, placeholder: "本文 ※必須", class: :postForm__content
   -# 画像フォーム
+  %p.postForm__imageTitle 画像選択 ※1枚以上必須
   .postForm__image
     #image-box
       #previews
