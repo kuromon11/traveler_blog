@@ -32,13 +32,13 @@ class PostsController < ApplicationController
       if @post.save
         @post.save_posts(tag_list)
         format.html { redirect_to root_path}
-        format.json { render :show, status: :created, location: @post }
+        # format.json { render :show, status: :created, location: @post }
         # redirect_to root_path
       else
         # @post = Post.new(post_params)
         # render 'new'
         format.html { render :new }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
+        # format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -84,12 +84,12 @@ class PostsController < ApplicationController
       if @post.update(post_params)
         @post.save_posts(tag_list)
         format.html { redirect_to @post}
-        format.json { render :show, status: :ok, location: @post }
+        # format.json { render :show, status: :ok, location: @post }
         # redirect_to root_path
       else
         # render 'edit'
         format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        # format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
