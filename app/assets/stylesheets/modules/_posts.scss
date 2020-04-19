@@ -420,8 +420,8 @@ body{
     }
     &__btn{
       display: block;
-      width: 50%;
-      margin: 10px auto 0;
+      width: 100%;
+      margin: 40px auto 0;
     }
     &__tagTitle{
       margin-top: 10px;
@@ -430,8 +430,8 @@ body{
     &__tags{
       width: 100%;
       margin-top: 10px;
-      border: 1px solid;
-      border-color: #fff;
+      // border: 1px solid;
+      // border-color: #fff;
     }
     &__imageTitle{
       margin-top: 10px;
@@ -448,7 +448,6 @@ body{
         height: 100%;
         #previews{
           height: 50%;
-
           img{
             width: 24.5%;
             height: 100%;
