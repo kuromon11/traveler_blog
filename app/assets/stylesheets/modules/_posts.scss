@@ -223,7 +223,16 @@ body{
               color: $TextBlackColor;
               font-size: 24px;
               text-align: center;
-              line-height: 24px;
+              line-height: 40px;
+              .post-tag-label{
+                display: flex;
+                a{
+                  display: inline-block;
+                  text-decoration: none;
+                  line-height: 24px;
+                  color: white;
+                }
+              }
               .like-btn{
                 line-height: 40px;
                 text-align: center;
@@ -459,25 +468,6 @@ body{
         }
       }
     }
-      // &__forms{
-      //   display: flex;
-      //   width: 100%;
-      //   height: 100%;
-      //   .js-file_group{
-      //     display: flex;
-      //     &__label{
-      //       cursor: pointer;
-      //       font-size: 16px;
-      //       border: 1px solid gray;
-      //       i {
-      //         font-size: 1.3em;
-      //         color: black;
-      //       }
-      //       &--file{
-      //         width: 100px;
-      //         // display: none;
-      //       }
-      //     }
   }
   .user{
     padding: 15px 30px;

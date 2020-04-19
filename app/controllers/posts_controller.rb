@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     # タグの絞り込み検索
-    if params[:tag_ids]
+    if params[:tag_id]
       @tag_list = Tag.all
       @tag = Tag.find(params[:tag_id])
       # 投稿記事を新着順に並べ替え
@@ -45,6 +45,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @tag_list = Tag.all
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order("created_at DESC")
     @likes_count = Like.all.count
@@ -58,12 +59,10 @@ class PostsController < ApplicationController
 
   # prefecturesアクションを追加
   def prefectures
+    # prefecture_id = Prefecture.find(params[:prefecture_id])
     if params[:prefecture_id].present?
       @posts = Post.where('prefecture_id LIKE ?', "%#{params[:prefecture_id]}%").includes(:user).order("created_at DESC").page(params[:page]).per(5)
     end
-    # 条件演算子：trueなら都道府県検索
-    # @tag = Tag.find(params[:tag_id]) if params[:tag_id].present?
-    # @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts.includes(:user).order("created_at DESC").page(params[:page]).per(5) : Post.all
   end
 
   # rankingアクションを追加
@@ -103,7 +102,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:prefecture_id, :title, :content, images_attributes: [:id, :_destroy, :src], tag_ids: [], ).merge(user_id: current_user.id)
+    params.require(:post).permit(:prefecture_id, :title, :content, images_attributes: [:id, :_destroy, :src], tag_ids: [:id, :name]).merge(user_id: current_user.id)
   end
 
   def move_to_index

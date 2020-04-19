@@ -28,10 +28,12 @@
             = link_to post.user.nickname, user_path(post.user_id), class: "content__info__right__bottom__user--Name--btn"
         .content__info__right__bottom__tag
           - post.tags.each do |tag|
-            .post-tag-label.btn.btn-success
-              = tag.name   #  = post.tags&.first&.name 
-            .post-tag-label.btn.btn-success
-              = Prefecture.find(post.prefecture_id).name    #  = post.tags&.first&.name 
+            .post-tag-label.btn.btn-info
+              ＃
+              = link_to tag.name, posts_path(tag_id: tag.id)
+            .post-tag-prefecture
+              ＠
+              = Prefecture.find(post.prefecture_id).name 
           %span.far.fa-thumbs-up.fa-3x.like-btn
             = post.likes_count   
 

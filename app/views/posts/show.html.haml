@@ -1,8 +1,11 @@
 .contents
   .postTitle
     = @post.title
-    @
-    = Prefecture.find(@post.prefecture_id).name
+    ＃
+    - @post.tags.each do |tag|
+      = tag.name
+    ＠
+    = Prefecture.find(@post.prefecture_id).name 
   .postDate
     .postDate__created
       投稿時間:
