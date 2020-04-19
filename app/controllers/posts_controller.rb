@@ -3,16 +3,25 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show] 
 
   def index
-    # @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
-    # 投稿記事を新着順に並べ替え
-    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
-    @all_ranks = Post.includes(:user).order("likes_count DESC").page(params[:page]).per(10)
+    # タグの絞り込み検索
+    if params[:tag_ids]
+      @tag_list = Tag.all
+      @tag = Tag.find(params[:tag_id])
+      # 投稿記事を新着順に並べ替え
+      @posts = @tag.posts.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+    #一覧表示(条件なし)
+    else
+      # 投稿記事を新着順に並べ替え
+      @tag_list = Tag.all
+      @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+      #いいねランキング
+      @all_ranks = Post.includes(:user).order("likes_count DESC").page(params[:page]).per(10)
+    end
   end
 
   def new
     @post = Post.new
     @post.images.new
-    # @tag = Tag.find(params[:id])
   end
 
   def create
@@ -94,7 +103,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:tag_ids, :prefecture_id, :title, :content, images_attributes: [:id, :_destroy, :src]).merge(user_id: current_user.id)
+    params.require(:post).permit(:prefecture_id, :title, :content, images_attributes: [:id, :_destroy, :src], tag_ids: [], ).merge(user_id: current_user.id)
   end
 
   def move_to_index

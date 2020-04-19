@@ -5,7 +5,7 @@
 = form_with model: @post, class: "postForm", local: true do |form|
   -# 都道府県追加
   = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "どこに行きましたか ※必須"}, class: :postForm__tagSelect
-  = form.text_field :title, placeholder: "タイトル ※必須 25文字以内 ", class: :postForm__title
+  = form.text_field :title, placeholder: "タイトル ※必須 20文字以内 ", class: :postForm__title
   = form.text_area :content, placeholder: "本文 ※必須", class: :postForm__content
   -# タグフォーム
   %p.postForm__tagTitle タグ選択 ※任意

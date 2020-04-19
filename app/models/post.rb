@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   validates :prefecture_id, presence: true
-  validates :title, presence: true, length: { maximum: 25 }
+  validates :title, presence: true, length: { maximum: 20 }
   validates :content, presence: true
   validates :images, presence: true, length: { minimum: 1, maximum: 4 }
   belongs_to :user
@@ -36,8 +36,8 @@ class Post < ApplicationRecord
 
     # Create
     new_tags.each do |new_name|
-      blog_tag = Tag.find_or_create_by(name: new_name)
-      self.tags << blog_tag #タグ新たに追加
+      post_tag = Tag.find_or_create_by(name: new_name)
+      self.tags << post_tag #タグ新たに追加
     end
   end
   
