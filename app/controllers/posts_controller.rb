@@ -16,16 +16,23 @@ class PostsController < ApplicationController
   end
 
   def create
-
     @post = Post.new(post_params)
-    # tag_list = params[:post][:name].split(",")
-    # tag = Tag.find(params[:tag_id])
-    # post.tags << tag
-    if @post.save
-      redirect_to root_path
-    else
-      @post = Post.new(post_params)
-      render 'new'
+    # タグ関係のformat
+    tag_list = params[:post][:name].split(",")
+    respond_to do |format|
+      # tag = Tag.find(params[:tag_id])
+      # post.tags << tag
+      if @post.save
+        @post.save_posts(tag_list)
+        format.html { redirect_to @post, notice: '記事を投稿しました' }
+        format.json { render :show, status: :created, location: @post }
+        # redirect_to root_path
+      else
+        # @post = Post.new(post_params)
+        # render 'new'
+        format.html { render :new }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -60,14 +67,34 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @tag_list = @post.tags.pluck(:name).join(",")
   end
 
+  # def update
+  #   @post = Post.find(params[:id])
+  #   if @post.update(post_params) 
+  #     redirect_to post_path(@post.id)
+  #   else
+  #     render 'edit'
+  #   end
+  # end
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params) 
-      redirect_to post_path(@post.id)
-    else
-      render 'edit'
+    # タグ関係のformat
+    tag_list = params[:post][:name].split(",")
+    respond_to do |format|
+      # tag = Tag.find(params[:tag_id])
+      # post.tags << tag
+      if @post.update(post_params)
+        @post.save_posts(tag_list)
+        format.html { redirect_to @post, notice: '記事を編集しました' }
+        format.json { render :show, status: :ok, location: @post }
+        # redirect_to root_path
+      else
+        # render 'edit'
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
