@@ -20,11 +20,9 @@ class PostsController < ApplicationController
     # タグ関係のformat
     tag_list = params[:post][:name].split(",")
     respond_to do |format|
-      # tag = Tag.find(params[:tag_id])
-      # post.tags << tag
       if @post.save
         @post.save_posts(tag_list)
-        format.html { redirect_to @post, notice: '記事を投稿しました' }
+        format.html { redirect_to root_path}
         format.json { render :show, status: :created, location: @post }
         # redirect_to root_path
       else
@@ -70,24 +68,14 @@ class PostsController < ApplicationController
     @tag_list = @post.tags.pluck(:name).join(",")
   end
 
-  # def update
-  #   @post = Post.find(params[:id])
-  #   if @post.update(post_params) 
-  #     redirect_to post_path(@post.id)
-  #   else
-  #     render 'edit'
-  #   end
-  # end
   def update
     @post = Post.find(params[:id])
     # タグ関係のformat
     tag_list = params[:post][:name].split(",")
     respond_to do |format|
-      # tag = Tag.find(params[:tag_id])
-      # post.tags << tag
       if @post.update(post_params)
         @post.save_posts(tag_list)
-        format.html { redirect_to @post, notice: '記事を編集しました' }
+        format.html { redirect_to @post}
         format.json { render :show, status: :ok, location: @post }
         # redirect_to root_path
       else
