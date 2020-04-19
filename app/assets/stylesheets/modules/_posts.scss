@@ -175,50 +175,69 @@ body{
             background-image: image-url("person.png");
             background-size: 50%;
             background-size: cover;
-            height: 50px;
-            width: 50px;
+            height: 80px;
+            width: 80px;
             border: solid 1px;
           }
         }
         &__right{
-          width: calc(100%-70px);
+          width: 100%;
           &__top{
-            font-size: 21px;
+            font-size: 20px;
             font-weight: bold;
-            line-height: 24px;
+            line-height: 40px;
+            display: flex;
             &--title{
               text-decoration: none;
               color: $TextBlackColor;
             }
+            &--date{
+              color: $TextBlackColor;
+              font-size: 12px;
+              margin-left: 20px;
+            }
           }
           &__bottom{
             width: 100%;
-            font-size: 14px;
-            line-height: 24px;
+            font-size: 16px;
+            line-height: 40px;
             color: $TextBlackColor;
             display: flex;
-            justify-content: flex-end;
-            &--userName{
-              color: $TextBlackColor;
-              margin-right: 10px;
-              &--btn{
-                text-decoration: none;
+            justify-content: space-between;
+            &__user{
+              display: flex;
+              width: 40%;
+              &--Name{
                 color: $TextBlackColor;
+                margin-right: 10px;
+                &--btn{
+                  text-decoration: none;
+                  color: $TextBlackColor;
+                }
               }
             }
-            &--date{
-              color: $TextBlackColor;
-              font-size: 14px;
-              margin-right: 40px;
-            }
-            &--tag{
+            &__tag{
+              width: 60%;
+              display: flex;
+              justify-content: space-around;
               color: $TextBlackColor;
               font-size: 24px;
-              margin-right: 40px;
-            }
-            &--likes{
-              line-height: 10px;
-              font-size: 10px;
+              text-align: center;
+              line-height: 40px;
+              .post-tag-label{
+                display: flex;
+                a{
+                  display: inline-block;
+                  text-decoration: none;
+                  line-height: 24px;
+                  color: white;
+                }
+              }
+              .like-btn{
+                line-height: 40px;
+                text-align: center;
+                font-size: 30px;
+              }
             }
           }
         }
@@ -237,9 +256,6 @@ body{
       text-align: center;
       font-size: 20px;
       font-weight: bold;
-      // &__prefecture{
-      //   font-size: 16px;
-      // }
       //順位
       &__rank{
         font-size: 20px;
@@ -394,6 +410,7 @@ body{
       display: block;
       width: 100%;
       height: 50px;
+      margin-top: 10px;
     }
     &__content{
       display: block;
@@ -403,12 +420,28 @@ body{
     }
     &__btn{
       display: block;
-      width: 50%;
-      margin: 10px auto 0;
-    }
-    &__image{
       width: 100%;
-      height: 240px;
+      margin: 40px auto 0;
+    }
+    &__tagTitle{
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    &__tags{
+      width: 100%;
+      margin-top: 10px;
+      // border: 1px solid;
+      // border-color: #fff;
+    }
+    &__imageTitle{
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    &__images{
+      width: 100%;
+      margin-top: 10px;
+      border: 1px solid;
+      border-color: #fff;
       #image-box{
         margin-top: 10px;
         width: 100%;
@@ -431,25 +464,6 @@ body{
         }
       }
     }
-      // &__forms{
-      //   display: flex;
-      //   width: 100%;
-      //   height: 100%;
-      //   .js-file_group{
-      //     display: flex;
-      //     &__label{
-      //       cursor: pointer;
-      //       font-size: 16px;
-      //       border: 1px solid gray;
-      //       i {
-      //         font-size: 1.3em;
-      //         color: black;
-      //       }
-      //       &--file{
-      //         width: 100px;
-      //         // display: none;
-      //       }
-      //     }
   }
   .user{
     padding: 15px 30px;

@@ -3,11 +3,17 @@
     - post.errors.full_messages.each do |message|
       %li.message
 = form_with model: @post, class: "postForm", local: true do |form|
-  -# タグ追加
-  = form.collection_select :tag_ids, Prefecture.all, :id, :name, {prompt: "どこに行きましたか ※必須"}, class: :postForm__tagSelect
-  = form.text_field :title, placeholder: "タイトル ※必須 25文字以内 ", class: :postForm__title
+  -# 都道府県追加
+  = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "どこに行きましたか ※必須"}, class: :postForm__tagSelect
+  = form.text_field :title, placeholder: "タイトル ※必須 20文字以内 ", class: :postForm__title
   = form.text_area :content, placeholder: "本文 ※必須", class: :postForm__content
-  .postForm__image
+  -# タグフォーム
+  %p.postForm__tagTitle タグ選択 ※任意
+  .postForm__tags
+    = form.text_field :name, placeholder: "タグを入力 ", value: @tag_list, class: :postForm__title
+  -# 画像フォーム
+  %p.postForm__imageTitle 画像選択 ※1枚以上必須
+  .postForm__images
     #image-box
       #previews
         - if @post.persisted?

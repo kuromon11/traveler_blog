@@ -20,15 +20,21 @@
     .content__info__right
       .content__info__right__top
         = link_to post.title, post_path(post.id), class: "content__info__right__top--title"
-      .content__info__right__bottom
-        .content__info__right__bottom--userName
-          = link_to post.user.nickname, user_path(post.user_id), class: "content__info__right__bottom--userName--btn"
-        .content__info__right__bottom--date
+        .content__info__right__top--date
           = post.created_at.strftime("%Y-%m-%d %H:%M")
-        .content__info__right__bottom--tag  
-          @
-          = post.tags&.first&.name 
-        %span.far.fa-thumbs-up.fa-2x.like-btn
-          = post.likes_count   
+      .content__info__right__bottom
+        .content__info__right__bottom__user
+          .content__info__right__bottom__user--Name
+            = link_to post.user.nickname, user_path(post.user_id), class: "content__info__right__bottom__user--Name--btn"
+        .content__info__right__bottom__tag
+          - post.tags.each do |tag|
+            .post-tag-label.btn.btn-info
+              ＃
+              = link_to tag.name, posts_path(tag_id: tag.id)
+            .post-tag-prefecture
+              ＠
+              = Prefecture.find(post.prefecture_id).name 
+          %span.far.fa-thumbs-up.fa-3x.like-btn
+            = post.likes_count   
 
 

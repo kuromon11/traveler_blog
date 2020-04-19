@@ -3,34 +3,49 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show] 
 
   def index
-    # @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
-    # 投稿記事を新着順に並べ替え
-    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
-    @all_ranks = Post.includes(:user).order("likes_count DESC").page(params[:page]).per(10)
+    # タグの絞り込み検索
+    if params[:tag_id]
+      @tag_list = Tag.all
+      @tag = Tag.find(params[:tag_id])
+      # 投稿記事を新着順に並べ替え
+      @posts = @tag.posts.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+    #一覧表示(条件なし)
+    else
+      # 投稿記事を新着順に並べ替え
+      @tag_list = Tag.all
+      @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+      #いいねランキング
+      @all_ranks = Post.includes(:user).order("likes_count DESC").page(params[:page]).per(10)
+    end
   end
 
   def new
     @post = Post.new
     @post.images.new
-    # @tag = Tag.find(params[:id])
   end
 
   def create
-
     @post = Post.new(post_params)
-    # tag_list = params[:post][:name].split(",")
-    # tag = Tag.find(params[:tag_id])
-    # post.tags << tag
-    if @post.save
-      redirect_to root_path
-    else
-      @post = Post.new(post_params)
-      render 'new'
+    # タグ関係のformat
+    tag_list = params[:post][:name].split(",")
+    respond_to do |format|
+      if @post.save
+        @post.save_posts(tag_list)
+        format.html { redirect_to root_path}
+        format.json { render :show, status: :created, location: @post }
+        # redirect_to root_path
+      else
+        # @post = Post.new(post_params)
+        # render 'new'
+        format.html { render :new }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
     end
   end
 
   def show
     @post = Post.find(params[:id])
+    @tag_list = Tag.all
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order("created_at DESC")
     @likes_count = Like.all.count
@@ -44,9 +59,10 @@ class PostsController < ApplicationController
 
   # prefecturesアクションを追加
   def prefectures
-    # 条件演算子：trueなら都道府県検索
-    @tag = Tag.find(params[:tag_id]) if params[:tag_id].present?
-    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts.includes(:user).order("created_at DESC").page(params[:page]).per(5) : Post.all
+    # prefecture_id = Prefecture.find(params[:prefecture_id])
+    if params[:prefecture_id].present?
+      @posts = Post.where('prefecture_id LIKE ?', "%#{params[:prefecture_id]}%").includes(:user).order("created_at DESC").page(params[:page]).per(5)
+    end
   end
 
   # rankingアクションを追加
@@ -57,14 +73,24 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @tag_list = @post.tags.pluck(:name).join(",")
   end
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params) 
-      redirect_to post_path(@post.id)
-    else
-      render 'edit'
+    # タグ関係のformat
+    tag_list = params[:post][:name].split(",")
+    respond_to do |format|
+      if @post.update(post_params)
+        @post.save_posts(tag_list)
+        format.html { redirect_to @post}
+        format.json { render :show, status: :ok, location: @post }
+        # redirect_to root_path
+      else
+        # render 'edit'
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -76,7 +102,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:tag_ids, :title, :content, images_attributes: [:id, :_destroy, :src]).merge(user_id: current_user.id)
+    params.require(:post).permit(:prefecture_id, :title, :content, images_attributes: [:id, :_destroy, :src], tag_ids: [:id, :name]).merge(user_id: current_user.id)
   end
 
   def move_to_index
