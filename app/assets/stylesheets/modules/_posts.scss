@@ -430,8 +430,14 @@ body{
       }
     }
     .postImage {
-      width: 600px;
-      height: 400px;
+      @media (min-width: 701px){
+        width: 600px;
+        height: 400px;
+      }
+      @media (max-width: 700px){
+        width: 300px;
+        height: 200px;
+      }
       margin: 0 auto;
       display: block;
       //画像がない時
