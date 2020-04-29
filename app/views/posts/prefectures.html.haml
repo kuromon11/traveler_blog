@@ -4,7 +4,7 @@
       = form.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "都道府県を選択してください"}, onchange: 'submit(this.form);'
     - if params[:prefecture_id].present?
       .tag-index
-        = @results
+        = Prefecture.find(params[:prefecture_id]).name
       - @posts.each do |post|
         = render partial: "post", locals: { post: post }
       = paginate(@posts)

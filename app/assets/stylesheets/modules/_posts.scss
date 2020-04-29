@@ -518,13 +518,12 @@ body{
     //都道府県検索=============================
     &__prefecture__Form{
       margin: 10px 0;
+      width: 100%;
+      height: 50px;
+      margin-top: 10px;
+      background-color: #ffffff;
       display: flex;
       justify-content: center;
-      #tag_id{
-        width: 80%;
-        margin: 0 auto;
-        text-align: center;
-      }
     }
     .tag-index{
       text-align: center;
