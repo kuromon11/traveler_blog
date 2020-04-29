@@ -2,9 +2,8 @@
 %html{:lang => "ja"}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    -# Required meta tags for bootstrap
-    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=yes", :name => "viewport"}/
-    -# %meta{:content => "width=320, height=480, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=yes", :name => "viewport"}/
+    -#{ shrink-to-fit=no, user-scalable=yes, width=320, height=480, user-scalable=yes}
+    %meta{content: "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0", name: "viewport"}
     %title JapanTraveler 〜日本を体感しよう〜
     = csrf_meta_tags
     = csp_meta_tag

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :move_to_index, except: [:index, :show] 
 
   def index
-    # タグの絞り込み検索
+    # タグが選択されたら、タグの絞り込み検索を行う
     if params[:tag_id]
       @tag_list = Tag.all
       @tag = Tag.find(params[:tag_id])

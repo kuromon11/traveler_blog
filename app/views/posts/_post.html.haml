@@ -29,11 +29,12 @@
         .content__info__right__bottom__tag
           - post.tags.each do |tag|
             .post-tag-label.btn.btn-info
-              ＃
+              %p.post-tag-label__sub ＃
               = link_to tag.name, posts_path(tag_id: tag.id)
-            .post-tag-prefecture
-              ＠
-              = Prefecture.find(post.prefecture_id).name 
+          .post-tag-prefecture
+            %p.post-tag-prefecture__sub ＠
+            %p.post-tag-prefecture__sub
+              = Prefecture.find(post.prefecture_id).name
           %span.far.fa-thumbs-up.fa-3x.like-btn
             = post.likes_count   
 

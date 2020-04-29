@@ -14,7 +14,7 @@
       = link_to "ランキング", ranking_posts_path(@posts), class: "header__right__content"
       = link_to "マイページ", user_path(current_user), class: "header__right__content"
       = link_to  new_post_path, class: "header__right--btn" do
-        %span.fas.fa-plus.fa-4x
+        %span.fas.fa-plus.fa-3x
     - else
       = link_to "ログイン", new_user_session_path, class: "header__right__content"
       = link_to "新規登録", new_user_registration_path, class: "header__right__content"
