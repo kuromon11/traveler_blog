@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :move_to_index, except: [:index, :show] 
-
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   def index
     # タグが選択されたら、タグの絞り込み検索を行う
     if params[:tag_id]
@@ -33,7 +33,6 @@ class PostsController < ApplicationController
         @post.save_posts(tag_list)
         format.html { redirect_to root_path}
         # format.json { render :show, status: :created, location: @post }
-        # redirect_to root_path
       else
         # @post = Post.new(post_params)
         # render 'new'
@@ -44,7 +43,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @tag_list = Tag.all
     @comment = Comment.new
     @comments = @post.comments.includes(:user).order("created_at DESC")
@@ -72,12 +70,10 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
     @tag_list = @post.tags.pluck(:name).join(",")
   end
 
   def update
-    @post = Post.find(params[:id])
     # タグ関係のformat
     tag_list = params[:post][:name].split(",")
     respond_to do |format|
@@ -85,9 +81,7 @@ class PostsController < ApplicationController
         @post.save_posts(tag_list)
         format.html { redirect_to @post}
         # format.json { render :show, status: :ok, location: @post }
-        # redirect_to root_path
       else
-        # render 'edit'
         format.html { render :edit }
         # format.json { render json: @post.errors, status: :unprocessable_entity }
       end
@@ -95,8 +89,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
+    @post.destroy
     redirect_to root_path
   end
 
@@ -109,4 +102,7 @@ class PostsController < ApplicationController
     redirect_to root_path, action: :index unless user_signed_in?
   end
 
+  def set_post
+    @post = Post.find(params[:id])
+  end
 end
