@@ -1,9 +1,9 @@
 # JapanTraveler:japan:
-
+![personal1.jpg](./readme_images/personal1.jpg)
 ## 概要
 ### 🌐  App URL
-### **http://japan-traveler-blog.com/**  
-日本国内の様々な都道府県を体感していただくサイトです。<br>
+### **http://japan-traveler-blog.com/**
+日本国内の様々な都道府県を体感していただけるサイトです。<br>
 日本国内に特化した旅行系ブログアプリとなっております。<br>
 * BASIC認証<br>
 ID : japan<br>
@@ -12,8 +12,8 @@ PW : kagawa<br><br>
 メールアドレス : test@test<br>
 パスワード : testtest 
 
-## 使用言語<br>
-Haml,SCSS,Bootstrap,Ruby,RubyonRails,Javascript,jQuery,AWS(EC2,S3)
+## 使用言語・構築方法<br>
+Haml・SCSS・Bootstrap・Ruby・RubyonRails・Javascript・jQuery・AWS(EC2,S3,Route53)・MySQL・nginx・Unicorn・Capistrano
 
 ## 目的
 * 日本人として日本のことをより深く知っておきたいから。<br>
@@ -30,13 +30,12 @@ Haml,SCSS,Bootstrap,Ruby,RubyonRails,Javascript,jQuery,AWS(EC2,S3)
 * いいね機能<br>
 * 都道府県検索・用語検索<br>
 * いいねランキング<br>
-## 構築方法
-AWS,MySQL,nginx,Unicorn,Capistrano
-
+* タグ機能・タグ検索機能<br>
+* レスポンシブ対応<br>
+![personal2.jpg](./readme_images/personal10.jpg)
 ## 使い方
-* 上記のアドレスにアクセスした際のトップページ画面です。記事の一覧を閲覧できます。<br>
-![personal1.jpg](./readme_images/personal1.jpg)
-* ログイン画面です。アカウントを持っていない場合は新規作成ボタンをクリックしてアカウントを登録します。Twitterのアカウントを使ってログインすることが可能です。<br>
+* トップページ画面では、記事の一覧を閲覧することができます。<br>
+* ログイン画面です。アカウントを持っていない場合は新規作成ボタンをクリックしてアカウントを登録します。TwitterまたはGoogleのアカウントを使ってログインすることが可能です。<br>
 ![personal2.jpg](./readme_images/personal2.jpg)
 * 新規投稿画面です。<br>
 ![personal3.jpg](./readme_images/personal3.jpg)
@@ -48,8 +47,5 @@ AWS,MySQL,nginx,Unicorn,Capistrano
 ![personal8.jpg](./readme_images/personal8.jpg)
 * 都道府県検索の画面です。キーワードの検索を行うこともできます。<br>
 ![personal9.jpg](./readme_images/personal9.jpg)
-
-
-
 
 * ...
