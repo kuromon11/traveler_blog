@@ -1,4 +1,4 @@
-# JapanTraveler:japan:
+# JapanTraveler ※現在停止中
 ![personal1.jpg](./readme_images/personal1.jpg)
 ## 概要
 ### 🌐  App URL
